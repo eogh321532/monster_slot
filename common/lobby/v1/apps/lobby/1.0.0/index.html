@@ -1,0 +1,1957 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Pragmatic Play | Lobby</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+        <meta name="color-scheme" content="light only">
+        <link rel="icon" href="./assets/favicon/favicon.svg" type="image/svg+xml">
+        <script>
+            window.appType = "lobby"
+        </script>
+        <script>
+            !function() {
+                "use strict";
+                class e {
+                    constructor(e) {
+                        var t, r, n;
+                        t = this,
+                        n = [],
+                        (r = function(e) {
+                            var t = function(e) {
+                                if ("object" != typeof e || !e)
+                                    return e;
+                                var t = e[Symbol.toPrimitive];
+                                if (void 0 !== t) {
+                                    var r = t.call(e, "string");
+                                    if ("object" != typeof r)
+                                        return r;
+                                    throw new TypeError("@@toPrimitive must return a primitive value.")
+                                }
+                                return String(e)
+                            }(e);
+                            return "symbol" == typeof t ? t : t + ""
+                        }(r = "data"))in t ? Object.defineProperty(t, r, {
+                            value: n,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : t[r] = n,
+                        this.options = e,
+                        e.flushingInterval > 0 && (this.intervalId = window.setInterval(( () => {
+                            this.flush()
+                        }
+                        ), this.options.flushingInterval))
+                    }
+                    onFlush(e) {
+                        this.flushCallback = e
+                    }
+                    push(e) {
+                        var t;
+                        this.options.flushingInterval <= 0 ? null === (t = this.flushCallback) || void 0 === t || t.call(this, [e]) : this.data.push(e)
+                    }
+                    flush() {
+                        var e;
+                        0 !== this.data.length && (null === (e = this.flushCallback) || void 0 === e || e.call(this, this.data),
+                        this.clear())
+                    }
+                    clear() {
+                        this.data = []
+                    }
+                    close() {
+                        this.flush(),
+                        this.intervalId && (window.clearInterval(this.intervalId),
+                        this.intervalId = void 0)
+                    }
+                }
+                class t {
+                    constructor(e, t) {
+                        this.queue = e,
+                        this.transmitter = t,
+                        this.queue.onFlush((e => {
+                            this.transmit(e)
+                        }
+                        ))
+                    }
+                    process(e, t) {
+                        null != t && t.instant ? this.transmit([e]) : this.queue.push(e)
+                    }
+                    transmit(e) {
+                        this.transmitter.transmit(e)
+                    }
+                    unplug() {
+                        this.queue.close()
+                    }
+                }
+                class r {
+                    transmit(e) {
+                        console.log("Telemetry Service: ", e)
+                    }
+                }
+                class n extends t {
+                    constructor() {
+                        super(new e({
+                            flushingInterval: 0
+                        }), new r)
+                    }
+                }
+                class i {
+                    constructor(e) {
+                        this.options = e
+                    }
+                    transmit(e) {
+                        const t = "string" == typeof e
+                          , r = t ? e : JSON.stringify(e);
+                        try {
+                            navigator.sendBeacon(this.options.url, r)
+                        } catch (e) {
+                            const n = new XMLHttpRequest;
+                            n.open("POST", this.options.url, !0),
+                            t || n.setRequestHeader("Content-Type", "application/json"),
+                            n.send(r)
+                        }
+                    }
+                }
+                class s extends t {
+                    constructor(t) {
+                        super(new e({
+                            flushingInterval: t.flushingInterval
+                        }), new i({
+                            url: t.url
+                        }))
+                    }
+                }
+                class o {
+                    constructor(e) {
+                        this.storage = e;
+                        try {
+                            const t = "__storage_test__";
+                            e.setItem(t, t),
+                            e.removeItem(t),
+                            this.storageAvailable = !0
+                        } catch (e) {
+                            this.storageAvailable = !1
+                        }
+                    }
+                    isAvailable() {
+                        return this.storageAvailable
+                    }
+                    get(e) {
+                        return this.storageAvailable ? this.storage.getItem(e) : null
+                    }
+                    getJson(e) {
+                        const t = this.get(e);
+                        if (!t)
+                            return null;
+                        try {
+                            return JSON.parse(t)
+                        } catch (e) {
+                            return null
+                        }
+                    }
+                    set(e, t) {
+                        this.storageAvailable && this.storage.setItem(e, t)
+                    }
+                    setJson(e, t) {
+                        this.set(e, JSON.stringify(t))
+                    }
+                    remove(e) {
+                        this.storageAvailable && this.storage.removeItem(e)
+                    }
+                }
+                class a extends o {
+                    constructor() {
+                        super(window.localStorage)
+                    }
+                }
+                class l extends o {
+                    constructor() {
+                        super(window.sessionStorage)
+                    }
+                }
+                function c(e, t, r) {
+                    return (t = function(e) {
+                        var t = function(e) {
+                            if ("object" != typeof e || !e)
+                                return e;
+                            var t = e[Symbol.toPrimitive];
+                            if (void 0 !== t) {
+                                var r = t.call(e, "string");
+                                if ("object" != typeof r)
+                                    return r;
+                                throw new TypeError("@@toPrimitive must return a primitive value.")
+                            }
+                            return String(e)
+                        }(e);
+                        return "symbol" == typeof t ? t : t + ""
+                    }(t))in e ? Object.defineProperty(e, t, {
+                        value: r,
+                        enumerable: !0,
+                        configurable: !0,
+                        writable: !0
+                    }) : e[t] = r,
+                    e
+                }
+                class u {
+                    constructor(e) {
+                        c(this, "eventListeners", {}),
+                        c(this, "incomingEventListeners", {}),
+                        this.initWindowListeners(e)
+                    }
+                    handleEvent(e, t) {
+                        var r;
+                        const n = t;
+                        null === (r = this.eventListeners[e]) || void 0 === r || r.forEach((e => e(n.detail)))
+                    }
+                    initWindowListeners(e) {
+                        Object.values(e).forEach((e => {
+                            const t = e
+                              , r = this.handleEvent.bind(this, t);
+                            window.addEventListener(t, r),
+                            this.incomingEventListeners[t] = r
+                        }
+                        ))
+                    }
+                    addEventListener(e, t) {
+                        this.eventListeners[e] || (this.eventListeners[e] = []),
+                        this.eventListeners[e].push(t)
+                    }
+                    removeEventListener(e, t) {
+                        if (!this.eventListeners[e])
+                            return;
+                        const r = this.eventListeners[e].indexOf(t);
+                        -1 !== r && this.eventListeners[e].splice(r, 1)
+                    }
+                    emit(e, t) {
+                        window.dispatchEvent(new CustomEvent(e.toString(),{
+                            detail: t
+                        }))
+                    }
+                    close() {
+                        Object.entries(this.incomingEventListeners).forEach((e => {
+                            let[t,r] = e;
+                            window.removeEventListener(t, r)
+                        }
+                        ))
+                    }
+                }
+                let d = function(e) {
+                    return e.Report = "telemetry-service:report",
+                    e.UpdateMeta = "telemetry-service:update-meta",
+                    e.ReportText = "telemetry-service:report-text",
+                    e
+                }({})
+                  , h = function(e) {
+                    return e.BeforeClose = "telemetry-service:before-close",
+                    e.BeforeFlush = "telemetry-service:before-flush",
+                    e
+                }({});
+                function v(e, t) {
+                    var r = Object.keys(e);
+                    if (Object.getOwnPropertySymbols) {
+                        var n = Object.getOwnPropertySymbols(e);
+                        t && (n = n.filter((function(t) {
+                            return Object.getOwnPropertyDescriptor(e, t).enumerable
+                        }
+                        ))),
+                        r.push.apply(r, n)
+                    }
+                    return r
+                }
+                function p(e, t, r) {
+                    return (t = function(e) {
+                        var t = function(e) {
+                            if ("object" != typeof e || !e)
+                                return e;
+                            var t = e[Symbol.toPrimitive];
+                            if (void 0 !== t) {
+                                var r = t.call(e, "string");
+                                if ("object" != typeof r)
+                                    return r;
+                                throw new TypeError("@@toPrimitive must return a primitive value.")
+                            }
+                            return String(e)
+                        }(e);
+                        return "symbol" == typeof t ? t : t + ""
+                    }(t))in e ? Object.defineProperty(e, t, {
+                        value: r,
+                        enumerable: !0,
+                        configurable: !0,
+                        writable: !0
+                    }) : e[t] = r,
+                    e
+                }
+                class f {
+                    constructor(e) {
+                        this.relays = e.relays,
+                        this.textRelays = e.textRelays,
+                        this.meta = e.meta,
+                        this.eventTerminal = new u(d),
+                        this.eventTerminal.addEventListener(d.Report, (e => {
+                            this.report(e.data, e.options)
+                        }
+                        )),
+                        this.eventTerminal.addEventListener(d.UpdateMeta, (e => {
+                            this.meta.update(e.meta)
+                        }
+                        )),
+                        this.eventTerminal.addEventListener(d.ReportText, (e => {
+                            this.reportText(e.data)
+                        }
+                        )),
+                        window.addEventListener("beforeunload", ( () => {
+                            this.eventTerminal.emit(h.BeforeClose),
+                            this.relays.forEach((e => e.queue.flush())),
+                            this.textRelays.forEach((e => e.queue.flush()))
+                        }
+                        )),
+                        document.addEventListener("visibilitychange", ( () => {
+                            "hidden" === document.visibilityState && (this.eventTerminal.emit(h.BeforeFlush),
+                            this.relays.forEach((e => e.queue.flush())),
+                            this.textRelays.forEach((e => e.queue.flush())))
+                        }
+                        ))
+                    }
+                    resolveReportDataDefaults(e) {
+                        return e && e.type && e.name ? function(e) {
+                            for (var t = 1; t < arguments.length; t++) {
+                                var r = null != arguments[t] ? arguments[t] : {};
+                                t % 2 ? v(Object(r), !0).forEach((function(t) {
+                                    p(e, t, r[t])
+                                }
+                                )) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : v(Object(r)).forEach((function(t) {
+                                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                                }
+                                ))
+                            }
+                            return e
+                        }({
+                            type: "",
+                            name: "",
+                            count: 1,
+                            payload: [],
+                            numberPayload: []
+                        }, e) : (console.error('TelemetryService: Report data is falsy or missing "type" and/or "name" field(s). Report can not be processed.'),
+                        null)
+                    }
+                    report(e, t) {
+                        const r = this.resolveReportDataDefaults(e);
+                        if (!r)
+                            return;
+                        const n = this.meta.seal(r, null == t ? void 0 : t.customMeta);
+                        this.relays.forEach((e => {
+                            e.process(n, t)
+                        }
+                        ))
+                    }
+                    reportText(e, t) {
+                        this.textRelays.forEach((r => {
+                            r.process(this.meta.sealText(e), t)
+                        }
+                        ))
+                    }
+                    close() {
+                        this.eventTerminal.close(),
+                        this.relays.forEach((e => e.unplug())),
+                        this.textRelays.forEach((e => e.unplug()))
+                    }
+                }
+                function m(e, t, r) {
+                    return (t = function(e) {
+                        var t = function(e) {
+                            if ("object" != typeof e || !e)
+                                return e;
+                            var t = e[Symbol.toPrimitive];
+                            if (void 0 !== t) {
+                                var r = t.call(e, "string");
+                                if ("object" != typeof r)
+                                    return r;
+                                throw new TypeError("@@toPrimitive must return a primitive value.")
+                            }
+                            return String(e)
+                        }(e);
+                        return "symbol" == typeof t ? t : t + ""
+                    }(t))in e ? Object.defineProperty(e, t, {
+                        value: r,
+                        enumerable: !0,
+                        configurable: !0,
+                        writable: !0
+                    }) : e[t] = r,
+                    e
+                }
+                class g {
+                    constructor(e) {
+                        m(this, "urlSearchParams", new URLSearchParams(window.location.search)),
+                        m(this, "historyState", window.history.state),
+                        this.sessionStorageData = e
+                    }
+                    get(e) {
+                        var t;
+                        const r = this.urlSearchParams.get(e);
+                        return null !== r ? r : null !== (t = this.historyState) && void 0 !== t && t[e] ? this.historyState[e] : "object" == typeof this.sessionStorageData && this.sessionStorageData[e] ? this.sessionStorageData[e].toString() : null
+                    }
+                }
+                const y = new class {
+                    constructor() {
+                        var e, t, r;
+                        e = this,
+                        t = "lut",
+                        r = new Array(256),
+                        (t = function(e) {
+                            var t = function(e) {
+                                if ("object" != typeof e || !e)
+                                    return e;
+                                var t = e[Symbol.toPrimitive];
+                                if (void 0 !== t) {
+                                    var r = t.call(e, "string");
+                                    if ("object" != typeof r)
+                                        return r;
+                                    throw new TypeError("@@toPrimitive must return a primitive value.")
+                                }
+                                return String(e)
+                            }(e);
+                            return "symbol" == typeof t ? t : t + ""
+                        }(t))in e ? Object.defineProperty(e, t, {
+                            value: r,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : e[t] = r;
+                        let n = 0;
+                        for (; n < 16; )
+                            this.lut[n] = "0" + (n++).toString(16);
+                        for (; n < 256; )
+                            this.lut[n] = (n++).toString(16)
+                    }
+                    v4() {
+                        const e = 4294967295 * Math.random() | 0
+                          , t = 4294967295 * Math.random() | 0
+                          , r = 4294967295 * Math.random() | 0
+                          , n = 4294967295 * Math.random() | 0;
+                        return this.lut[255 & e] + this.lut[e >> 8 & 255] + this.lut[e >> 16 & 255] + this.lut[e >> 24 & 255] + "-" + this.lut[255 & t] + this.lut[t >> 8 & 255] + "-" + this.lut[t >> 16 & 15 | 64] + this.lut[t >> 24 & 255] + "-" + this.lut[63 & r | 128] + this.lut[r >> 8 & 255] + "-" + this.lut[r >> 16 & 255] + this.lut[r >> 24 & 255] + this.lut[255 & n] + this.lut[n >> 8 & 255] + this.lut[n >> 16 & 255] + this.lut[n >> 24 & 255]
+                    }
+                }
+                ;
+                function b(e, t, r) {
+                    return (t = function(e) {
+                        var t = function(e) {
+                            if ("object" != typeof e || !e)
+                                return e;
+                            var t = e[Symbol.toPrimitive];
+                            if (void 0 !== t) {
+                                var r = t.call(e, "string");
+                                if ("object" != typeof r)
+                                    return r;
+                                throw new TypeError("@@toPrimitive must return a primitive value.")
+                            }
+                            return String(e)
+                        }(e);
+                        return "symbol" == typeof t ? t : t + ""
+                    }(t))in e ? Object.defineProperty(e, t, {
+                        value: r,
+                        enumerable: !0,
+                        configurable: !0,
+                        writable: !0
+                    }) : e[t] = r,
+                    e
+                }
+                class w extends g {
+                    constructor(e, t, r) {
+                        var n, i;
+                        super(null !== (n = e.getJson(null !== (i = null == r ? void 0 : r.sessionDataKey) && void 0 !== i ? i : "PPG")) && void 0 !== n ? n : {}),
+                        this.sessionStorageAdapter = e,
+                        this.localStorageAdapter = t,
+                        this.sessionId = this.getSessionId(w.sessionIdKey, e),
+                        this.browserId = w.resolveId(w.browserIdKey, t)
+                    }
+                    static resolveId(e, t) {
+                        let r = t.get(e);
+                        return r || (r = y.v4(),
+                        t.set(e, r)),
+                        r
+                    }
+                    getSessionId(e, t) {
+                        let r = t.get(e);
+                        if (!r) {
+                            const n = this.get("JSESSIONID");
+                            r = n ? btoa(n).substring(0, 32) : y.v4(),
+                            t.set(e, r)
+                        }
+                        return r
+                    }
+                }
+                function E(e, t) {
+                    var r = Object.keys(e);
+                    if (Object.getOwnPropertySymbols) {
+                        var n = Object.getOwnPropertySymbols(e);
+                        t && (n = n.filter((function(t) {
+                            return Object.getOwnPropertyDescriptor(e, t).enumerable
+                        }
+                        ))),
+                        r.push.apply(r, n)
+                    }
+                    return r
+                }
+                function j(e) {
+                    for (var t = 1; t < arguments.length; t++) {
+                        var r = null != arguments[t] ? arguments[t] : {};
+                        t % 2 ? E(Object(r), !0).forEach((function(t) {
+                            O(e, t, r[t])
+                        }
+                        )) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : E(Object(r)).forEach((function(t) {
+                            Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                        }
+                        ))
+                    }
+                    return e
+                }
+                function O(e, t, r) {
+                    return (t = function(e) {
+                        var t = function(e) {
+                            if ("object" != typeof e || !e)
+                                return e;
+                            var t = e[Symbol.toPrimitive];
+                            if (void 0 !== t) {
+                                var r = t.call(e, "string");
+                                if ("object" != typeof r)
+                                    return r;
+                                throw new TypeError("@@toPrimitive must return a primitive value.")
+                            }
+                            return String(e)
+                        }(e);
+                        return "symbol" == typeof t ? t : t + ""
+                    }(t))in e ? Object.defineProperty(e, t, {
+                        value: r,
+                        enumerable: !0,
+                        configurable: !0,
+                        writable: !0
+                    }) : e[t] = r,
+                    e
+                }
+                b(w, "sessionIdKey", "coreSessionId"),
+                b(w, "browserIdKey", "coreBrowserId");
+                class P {
+                    constructor(e) {
+                        this.data = j({
+                            environment: location.host,
+                            application: location.pathname,
+                            location: null,
+                            casinoId: null,
+                            tableId: null,
+                            userId: null,
+                            width: window.innerWidth,
+                            height: window.innerHeight,
+                            appVersion: null,
+                            appType: "",
+                            appTypeVariant: null,
+                            vendor: null,
+                            language: null,
+                            sessionId: null,
+                            browserId: null,
+                            referer: null
+                        }, e)
+                    }
+                    update(e) {
+                        this.data = j(j({}, this.data), e)
+                    }
+                    seal(e, t) {
+                        return {
+                            meta: j(j(j({}, this.data), t), {}, {
+                                timestamp: Date.now()
+                            }),
+                            data: e
+                        }
+                    }
+                    sealText(e) {
+                        const t = "".concat(this.data.application, " | ").concat(this.data.environment, " | ").concat(this.data.appVersion);
+                        return "".concat(t, "\n").concat(e)
+                    }
+                }
+                function S(e, t) {
+                    var r = Object.keys(e);
+                    if (Object.getOwnPropertySymbols) {
+                        var n = Object.getOwnPropertySymbols(e);
+                        t && (n = n.filter((function(t) {
+                            return Object.getOwnPropertyDescriptor(e, t).enumerable
+                        }
+                        ))),
+                        r.push.apply(r, n)
+                    }
+                    return r
+                }
+                function I(e, t, r) {
+                    return (t = function(e) {
+                        var t = function(e) {
+                            if ("object" != typeof e || !e)
+                                return e;
+                            var t = e[Symbol.toPrimitive];
+                            if (void 0 !== t) {
+                                var r = t.call(e, "string");
+                                if ("object" != typeof r)
+                                    return r;
+                                throw new TypeError("@@toPrimitive must return a primitive value.")
+                            }
+                            return String(e)
+                        }(e);
+                        return "symbol" == typeof t ? t : t + ""
+                    }(t))in e ? Object.defineProperty(e, t, {
+                        value: r,
+                        enumerable: !0,
+                        configurable: !0,
+                        writable: !0
+                    }) : e[t] = r,
+                    e
+                }
+                class L extends P {
+                    constructor(e, t) {
+                        super(function(e) {
+                            for (var t = 1; t < arguments.length; t++) {
+                                var r = null != arguments[t] ? arguments[t] : {};
+                                t % 2 ? S(Object(r), !0).forEach((function(t) {
+                                    I(e, t, r[t])
+                                }
+                                )) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : S(Object(r)).forEach((function(t) {
+                                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                                }
+                                ))
+                            }
+                            return e
+                        }({
+                            casinoId: e.get("casino_id"),
+                            tableId: e.get("table_id"),
+                            sessionId: e.sessionId,
+                            browserId: e.browserId,
+                            language: e.get("lang"),
+                            referer: e.get("referer")
+                        }, t));
+                        const r = [this.data.application]
+                          , n = e.get("operator_theme");
+                        n && r.push(n);
+                        const i = e.get("gametype");
+                        this.update({
+                            application: r.join("-"),
+                            appType: null != i ? i : "",
+                            appTypeVariant: n
+                        })
+                    }
+                }
+                class T extends f {
+                    constructor(e) {
+                        var t, r, n, i;
+                        const o = null !== (t = e.relays) && void 0 !== t ? t : []
+                          , c = null !== (r = e.textRelays) && void 0 !== r ? r : [];
+                        (Array.isArray(e.url) ? e.url : [e.url]).forEach((t => {
+                            var r, n, i;
+                            o.push(new s({
+                                url: t + (null !== (r = null == e ? void 0 : e.reportEndpoint) && void 0 !== r ? r : "/log/data"),
+                                flushingInterval: null !== (n = e.flushingInterval) && void 0 !== n ? n : 6e4
+                            })),
+                            c.push(new s({
+                                url: t + (null !== (i = null == e ? void 0 : e.reportTextEndpoint) && void 0 !== i ? i : "/batchExceptions"),
+                                flushingInterval: 0
+                            }))
+                        }
+                        ));
+                        const u = null !== (n = null == e ? void 0 : e.sessionManager) && void 0 !== n ? n : new w(new l,new a,{
+                            sessionDataKey: null == e ? void 0 : e.sessionDataKey
+                        })
+                          , d = null !== (i = null == e ? void 0 : e.meta) && void 0 !== i ? i : new L(u,e.defaultMeta);
+                        super({
+                            relays: o,
+                            textRelays: c,
+                            meta: d
+                        }),
+                        this.sessionManager = u
+                    }
+                }
+                const x = new RegExp("(".concat(["/desktop", "/apps", "/MR"].join("|"), ")"));
+                class M {
+                    constructor(e) {
+                        this.config = e
+                    }
+                    resolve(e) {
+                        if (!this.isValidManifest(e))
+                            throw new Error("Invalid manifest");
+                        const t = {
+                            flags: {},
+                            packages: {},
+                            values: {},
+                            raw: e
+                        };
+                        for (const [r,n] of Object.entries(e)) {
+                            const e = this.resolveItem(n);
+                            "boolean" != typeof e ? void 0 === (null == e ? void 0 : e.version) ? void 0 === (null == e ? void 0 : e.value) ? t[r] = void 0 === e ? n : e : t.values[r] = e : t.packages[r] = e : t.flags[r] = e
+                        }
+                        return t
+                    }
+                    isValidManifest(e) {
+                        return "[object Object]" === Object.prototype.toString.call(e)
+                    }
+                    resolveCondition(e) {
+                        return e.find((e => {
+                            var t;
+                            return (null === (t = e.condition) || void 0 === t || null === (t = t.casinoIds) || void 0 === t ? void 0 : t.includes(this.config.casinoId)) || !e.condition
+                        }
+                        ))
+                    }
+                    resolveItem(e) {
+                        if ("boolean" == typeof e)
+                            return e;
+                        if (Array.isArray(e)) {
+                            const t = this.resolveCondition(e);
+                            if ("object" == typeof t) {
+                                if ("enabled"in t)
+                                    return Boolean(t.enabled);
+                                if ("value"in t)
+                                    return t;
+                                if ("version"in t)
+                                    return t
+                            }
+                            return t
+                        }
+                    }
+                    static merge() {
+                        const e = {
+                            flags: {},
+                            packages: {},
+                            values: {},
+                            raw: {}
+                        };
+                        for (var t = arguments.length, r = new Array(t), n = 0; n < t; n++)
+                            r[n] = arguments[n];
+                        return r.forEach((t => {
+                            Object.assign(e.flags, t.flags),
+                            Object.assign(e.packages, t.packages),
+                            Object.assign(e.values, t.values),
+                            Object.assign(e.raw, t.raw)
+                        }
+                        )),
+                        e
+                    }
+                }
+                class A {
+                    constructor() {
+                        var e, t, r;
+                        e = this,
+                        r = {},
+                        (t = function(e) {
+                            var t = function(e) {
+                                if ("object" != typeof e || !e)
+                                    return e;
+                                var t = e[Symbol.toPrimitive];
+                                if (void 0 !== t) {
+                                    var r = t.call(e, "string");
+                                    if ("object" != typeof r)
+                                        return r;
+                                    throw new TypeError("@@toPrimitive must return a primitive value.")
+                                }
+                                return String(e)
+                            }(e);
+                            return "symbol" == typeof t ? t : t + ""
+                        }(t = "listeners"))in e ? Object.defineProperty(e, t, {
+                            value: r,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : e[t] = r
+                    }
+                    addEventListener(e, t) {
+                        return this.listeners[e] || (this.listeners[e] = new Set),
+                        this.listeners[e].add(t),
+                        this.removeEventListener.bind(this, e, t)
+                    }
+                    removeEventListener(e, t) {
+                        this.listeners[e] && this.listeners[e].delete(t)
+                    }
+                    dispatchEvent(e) {
+                        for (var t = arguments.length, r = new Array(t > 1 ? t - 1 : 0), n = 1; n < t; n++)
+                            r[n - 1] = arguments[n];
+                        this.listeners[e] && this.listeners[e].forEach((e => e(...r)))
+                    }
+                }
+                class D extends A {
+                    constructor(e) {
+                        super(),
+                        this.storage = e;
+                        try {
+                            const t = "__storage_test__";
+                            e.setItem(t, t),
+                            e.removeItem(t),
+                            this.storageAvailable = !0
+                        } catch (e) {
+                            this.storageAvailable = !1
+                        }
+                    }
+                    isAvailable() {
+                        return this.storageAvailable
+                    }
+                    get(e) {
+                        return this.storageAvailable ? this.storage.getItem(e) : null
+                    }
+                    getJson(e) {
+                        const t = this.get(e);
+                        if (!t)
+                            return null;
+                        try {
+                            return JSON.parse(t)
+                        } catch (t) {
+                            return this.dispatchEvent("error", e, "getJson", t),
+                            null
+                        }
+                    }
+                    set(e, t) {
+                        this.storageAvailable && this.storage.setItem(e, t)
+                    }
+                    setJson(e, t) {
+                        try {
+                            const r = JSON.stringify(t);
+                            this.set(e, r)
+                        } catch (t) {
+                            this.dispatchEvent("error", e, "setJson", t)
+                        }
+                    }
+                    remove(e) {
+                        this.storageAvailable && this.storage.removeItem(e)
+                    }
+                }
+                const _ = new class extends D {
+                    constructor() {
+                        super(sessionStorage)
+                    }
+                }
+                ;
+                _.addEventListener("error", ( (e, t) => {
+                    window.dispatchEvent(new CustomEvent("telemetry-service:report",{
+                        detail: {
+                            data: {
+                                type: "failure",
+                                name: "loaderSessionStorage",
+                                numberPayload: [0],
+                                payload: [t, e]
+                            }
+                        }
+                    }))
+                }
+                ));
+                let k = function(e) {
+                    return e.LOBBY = "PPG_L",
+                    e.GAME = "PPG",
+                    e
+                }({});
+                class R {
+                    getCasinoId() {
+                        try {
+                            const e = "lobby_iframe" === window.name ? k.LOBBY : k.GAME
+                              , t = _.getJson(e);
+                            return t && (null == t ? void 0 : t.casino_id) || this.getFromUrl()
+                        } catch (e) {
+                            return console.error("Failed to parse session data:", e),
+                            this.getFromUrl()
+                        }
+                    }
+                    getFromUrl() {
+                        return new URLSearchParams(window.location.search).get("casino_id") || ""
+                    }
+                }
+                class C {
+                    constructor(e) {
+                        this.config = e,
+                        this.initialFlags = {
+                            isProdVersion: this.config.isProdVersion
+                        };
+                        const t = (new R).getCasinoId();
+                        this.resolver = new M({
+                            casinoId: t
+                        }),
+                        this.setAppManifest({
+                            flags: this.initialFlags,
+                            packages: {},
+                            values: {},
+                            raw: {}
+                        })
+                    }
+                    async resolveManifest() {
+                        const e = await this.loadManifest()
+                          , t = this.resolver.resolve(e);
+                        return t.flags = Object.assign(t.flags, this.initialFlags),
+                        this.setAppManifest(t),
+                        t
+                    }
+                    async loadManifest() {
+                        const e = "".concat(this.config.baseUrl, "/apps/feature-flags/1.0.0/").concat(this.config.gameType, ".manifest.json")
+                          , t = await fetch(e);
+                        if (!t.ok)
+                            throw new Error("Failed to load manifest: ".concat(t.statusText));
+                        return t.json()
+                    }
+                    setAppManifest(e) {
+                        window.appManifest = e,
+                        window.dispatchEvent(new CustomEvent("manifest-loaded"))
+                    }
+                }
+                class V {
+                    constructor(e) {
+                        this.config = e
+                    }
+                    async load() {
+                        var e, t;
+                        const r = [];
+                        if (this.config.files.releaseData) {
+                            const e = await this.loadReleaseData(this.config.version);
+                            this.updateRootMetadata(e)
+                        }
+                        null === (e = this.config.files.js) || void 0 === e || e.forEach((e => {
+                            r.push(this.loadScript(this.getAssetUrl(this.config.version, e)))
+                        }
+                        )),
+                        null === (t = this.config.files.css) || void 0 === t || t.forEach((e => {
+                            r.push(this.loadStylesheet(this.getAssetUrl(this.config.version, e)))
+                        }
+                        )),
+                        await Promise.all(r)
+                    }
+                    async loadReleaseData(e) {
+                        const t = await fetch(this.getAssetUrl(e, "release.json"));
+                        if (!t.ok)
+                            throw new Error("Failed to load release data: ".concat(t.statusText));
+                        return t.json()
+                    }
+                    getAssetUrl(e, t) {
+                        return "".concat(this.config.url, "/").concat(e, "/").concat(t)
+                    }
+                    async loadScript(e) {
+                        return new Promise(( (t, r) => {
+                            const n = document.createElement("script");
+                            "module" !== this.config.type && (n.defer = !0),
+                            n.src = e,
+                            n.onload = () => t(),
+                            n.onerror = () => r(new Error("Failed to load script: ".concat(e))),
+                            document.head.appendChild(n)
+                        }
+                        ))
+                    }
+                    async loadStylesheet(e) {
+                        return new Promise(( (t, r) => {
+                            const n = document.createElement("link");
+                            n.href = e,
+                            n.rel = "stylesheet",
+                            n.onload = () => t(),
+                            n.onerror = () => r(new Error("Failed to load stylesheet: ".concat(e))),
+                            document.head.appendChild(n)
+                        }
+                        ))
+                    }
+                    updateRootMetadata(e) {
+                        const t = document.getElementById("root");
+                        if (!t)
+                            return;
+                        const r = {
+                            gameVersion: e.gameVersion,
+                            version: e.version,
+                            coreVersion: e.coreVersion,
+                            buildNumber: e.buildNumber,
+                            localCore: e.localCore
+                        };
+                        Object.entries(r).forEach((e => {
+                            let[r,n] = e;
+                            t.dataset[r] = null != n ? n : ""
+                        }
+                        ))
+                    }
+                }
+                const B = {
+                    game: {
+                        files: {
+                            js: ["main.js"],
+                            css: ["main.css"],
+                            releaseData: !0
+                        }
+                    },
+                    video: {
+                        files: {
+                            js: []
+                        }
+                    }
+                };
+                class F {
+                    constructor(e) {
+                        this.config = e
+                    }
+                    async loadPackages(e) {
+                        const t = "versioned" === this.config.buildType
+                          , r = [];
+                        Object.entries(e).forEach((e => {
+                            var n, i, s;
+                            let[o,a] = e;
+                            const l = "game" === o;
+                            if (l && !t)
+                                return;
+                            const c = null == a ? void 0 : a.version;
+                            if (!c)
+                                return;
+                            const u = null !== (n = a.source) && void 0 !== n ? n : this.config.baseUrl
+                              , d = l ? this.config.gameType : o
+                              , h = null !== (i = null === (s = B[o]) || void 0 === s ? void 0 : s.files) && void 0 !== i ? i : {
+                                js: ["index.js"]
+                            }
+                              , v = new V({
+                                url: "".concat(u, "/apps/").concat(d),
+                                type: l ? void 0 : "module",
+                                version: c,
+                                files: h
+                            });
+                            r.push(v.load())
+                        }
+                        )),
+                        await Promise.all(r)
+                    }
+                }
+                class J {
+                    constructor(e) {
+                        var t, r, n;
+                        t = this,
+                        n = [],
+                        (r = function(e) {
+                            var t = function(e) {
+                                if ("object" != typeof e || !e)
+                                    return e;
+                                var t = e[Symbol.toPrimitive];
+                                if (void 0 !== t) {
+                                    var r = t.call(e, "string");
+                                    if ("object" != typeof r)
+                                        return r;
+                                    throw new TypeError("@@toPrimitive must return a primitive value.")
+                                }
+                                return String(e)
+                            }(e);
+                            return "symbol" == typeof t ? t : t + ""
+                        }(r = "errorCallbacks"))in t ? Object.defineProperty(t, r, {
+                            value: n,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : t[r] = n,
+                        this.config = e
+                    }
+                    logVersion() {
+                        console.log("Loader version: ".concat(this.config.loaderVersion, " (").concat(this.config.buildType, ")"))
+                    }
+                    onError(e) {
+                        this.errorCallbacks.push(e)
+                    }
+                    removeOnError(e) {
+                        const t = this.errorCallbacks.indexOf(e);
+                        -1 !== t && this.errorCallbacks.splice(t, 1)
+                    }
+                    initialize() {
+                        try {
+                            const e = new C(this.config);
+                            if (this.config.disableLoader)
+                                return;
+                            const t = new F(this.config);
+                            this.logVersion(),
+                            window.addEventListener("DOMContentLoaded", (async () => {
+                                const r = await e.resolveManifest();
+                                try {
+                                    await t.loadPackages(r.packages)
+                                } catch (e) {
+                                    throw new Error("Failed to load manifest")
+                                }
+                            }
+                            ))
+                        } catch (e) {
+                            this.errorCallbacks.forEach((t => t(e instanceof Error ? e : void 0)))
+                        }
+                    }
+                }
+                var U;
+                const q = {
+                    baseUrl: ( () => {
+                        const e = (window.location.origin + window.location.pathname).split(x);
+                        if (e.length < 2)
+                            return {
+                                base: window.location.origin,
+                                directory: ""
+                            };
+                        {
+                            let t = e.slice(1).join("");
+                            window.legacyMode && t.includes("/main.html") && (t = t.replace("/main.html", ""));
+                            const r = t.endsWith("/") ? t.slice(0, -1) : t;
+                            return {
+                                base: e[0] || window.location.origin,
+                                directory: r
+                            }
+                        }
+                    }
+                    )().base,
+                    loaderVersion: "3.33.2",
+                    gameType: "lobby",
+                    disableLoader: !0,
+                    isProdVersion: !0,
+                    buildType: "regular"
+                }
+                  , N = null === (U = window) || void 0 === U ? void 0 : U.appType;
+                !function(e, t, r, i) {
+                    const s = q.isProdVersion
+                      , o = s ? "https://stats-collector.zprnnrkgtbfiiigm.net" : "https://stats-collector.pplc-app-dev1.pragmaticplaylive.net";
+                    s || console.warn("%cUSING DEVELOPMENT LOADER", "font-size: 40px;");
+                    const a = new T({
+                        url: o,
+                        reportEndpoint: "/log/data",
+                        reportTextEndpoint: "/batchExceptions",
+                        textRelays: s ? void 0 : [new n],
+                        sessionDataKey: "lobby_iframe" === window.name ? "PPG_L" : "PPG"
+                    })
+                      , l = new J(q);
+                    l.onError((e => {
+                        a.report({
+                            type: "failure",
+                            name: "bundleLoader",
+                            count: 1,
+                            payload: e ? [e.message] : [],
+                            numberPayload: []
+                        }, {
+                            instant: !0
+                        })
+                    }
+                    )),
+                    N && a.meta.update({
+                        appType: N
+                    }),
+                    a.meta.update({
+                        vendor: null !== (e = a.sessionManager.get("vendor")) && void 0 !== e ? e : "live-casino"
+                    });
+                    const c = window.parent === window
+                      , u = !a.sessionManager.sessionStorageAdapter.getJson("previousSession")
+                      , d = "".concat(u ? "initial" : "refresh", "_").concat(c ? "standalone" : "iframe");
+                    a.report({
+                        type: "event",
+                        name: "loadingStart",
+                        count: 1,
+                        payload: [d],
+                        numberPayload: [0]
+                    }, {
+                        instant: !0
+                    }),
+                    l.initialize(),
+                    "lobby" !== N && window.addEventListener(h.BeforeClose, ( () => {
+                        var e;
+                        const t = null !== (e = window.loadingStateMask) && void 0 !== e ? e : 0;
+                        255 !== t && a.report({
+                            type: "duration",
+                            name: "earlyExit",
+                            count: 1,
+                            payload: [t.toString()],
+                            numberPayload: [Math.round(performance.now()), 0]
+                        })
+                    }
+                    )),
+                    window.addEventListener("load", ( () => {
+                        const e = document.getElementById("root");
+                        e && "true" === e.dataset.localCore && s && a.report({
+                            type: "event",
+                            name: "local core deployed",
+                            count: 1,
+                            payload: [],
+                            numberPayload: []
+                        }, {
+                            instant: !0
+                        })
+                    }
+                    )),
+                    [null !== (t = a.sessionManager.get("actual_web_server")) && void 0 !== t ? t : "", null !== (r = a.sessionManager.get("web_server")) && void 0 !== r ? r : "", null !== (i = a.sessionManager.get("meta_server")) && void 0 !== i ? i : ""].forEach((e => {
+                        if (e) {
+                            const t = document.createElement("link");
+                            t.rel = "preconnect",
+                            t.href = e,
+                            document.head.appendChild(t)
+                        }
+                    }
+                    )),
+                    document.addEventListener("dblclick", (function(e) {
+                        e.preventDefault(),
+                        e.stopPropagation()
+                    }
+                    ), !0),
+                    ( () => {
+                        let e = "";
+                        try {
+                            var t;
+                            e = null !== (t = new URLSearchParams(window.location.search).get("common_components_theme")) && void 0 !== t ? t : (e => {
+                                const t = "lobby_iframe" === window.name ? k.LOBBY : k.GAME
+                                  , r = _.getJson(t);
+                                return null !== (e = null == r ? void 0 : r.common_components_theme) && void 0 !== e ? e : ""
+                            }
+                            )()
+                        } catch (e) {
+                            console.error(e)
+                        }
+                        (e => {
+                            if (!e)
+                                return void document.documentElement.classList.add("ready");
+                            const t = "".concat(window.location.origin, "/apps/themes/1.0.0/dedicated/").concat(e, "/style.css")
+                              , r = document.createElement("link");
+                            r.href = t,
+                            r.rel = "stylesheet",
+                            document.head.append(r),
+                            document.documentElement.classList.add("dedicated"),
+                            document.documentElement.classList.add("dedicated_" + e),
+                            r.onerror = () => {
+                                document.documentElement.classList.add("ready"),
+                                document.documentElement.classList.remove("dedicated"),
+                                document.documentElement.classList.remove("dedicated_" + e)
+                            }
+                        }
+                        )(e)
+                    }
+                    )()
+                }()
+            }()
+        </script>
+        <script>
+            window.PreLogger && window.addEventListener("beforeunload", ( () => {
+                if (null === window.lobbyLoadingStateMask)
+                    return;
+                let e = {
+                    timestamp: Date.now(),
+                    duration: Math.round(performance.now()),
+                    metric: "lobbyEarlyExit",
+                    additional: "",
+                    environment: location.host,
+                    application: location.pathname,
+                    location: "",
+                    casino: window.PreLogger.casino,
+                    tableId: window.PreLogger.tableId,
+                    os: "",
+                    browser: "",
+                    version: "",
+                    width: 0,
+                    height: 0,
+                    count: 1,
+                    bandwidth: window.lobbyLoadingStateMask
+                };
+                window.PreLogger.sendData(e, "duration")
+            }
+            )),
+            window.addEventListener("telemetry-service:before-close", ( () => {
+                null !== window.lobbyLoadingStateMask && window.dispatchEvent(new CustomEvent("telemetry-service:report",{
+                    detail: {
+                        data: {
+                            type: "duration",
+                            name: "lobbyEarlyExit",
+                            numberPayload: [Math.round(performance.now()) ?? 0, window.lobbyLoadingStateMask ?? 0],
+                            payload: [""]
+                        }
+                    }
+                }))
+            }
+            ))
+        </script>
+        <style>
+            :root {
+                --curtain-game-logo: var(--dedicated-logo-url, var(--core-logo-base64-url)) no-repeat;
+                --lobby-color-background-accent: 0,0%,40%;
+                --theme-color-background-accent: var(--dedicated-color-accent-base, var(--lobby-color-background-accent));
+                --lobby-color-inverse-base: 0,0%,9%;
+                --lobby-background-color: hsla(var(--lobby-color-inverse-base), 1);
+                --lobby-background-regular: radial-gradient( 98% 98% at 29% 100%, hsla(var(--theme-color-background-accent), 0.1) 0%, transparent ),var(--lobby-background-color);
+                --curtain-bg: radial-gradient( 120% 100% at 0% 140%, var(--dedicated-curtain-filter, /*Theme filter*/ hsla(0, 0%, 35%, 0.4) ) 0%, transparent ),var(--lobby-background-color)
+            }
+
+            :root {
+                --core-logo-base64-url: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMTAiIGhlaWdodD0iMTQxIiBmaWxsPSJub25lIj4KICA8cGF0aCBmaWxsPSIjRjE5MDIxIiBkPSJNMjY3IDU0Ljk3Yy0xNS4zNS45NS04LjQ2IDIwLjcgOC41MiAxOS42NyAxNi42LTEuMDIgNy44NS0yMC42Ni04LjUyLTE5LjY3WiIvPgogIDxwYXRoIGZpbGw9IiNGMTkwMjEiIGQ9Ik0yNjAuNTIgMTM1LjM3YTQ0LjcgNDQuNyAwIDAgMS0yNC41OS03LjM3IDQzLjgyIDQzLjgyIDAgMCAxLTE2LjMtMTkuNjEgNDMuMiA0My4yIDAgMCAxLTIuNTEtMjUuMjYgNDMuNTQgNDMuNTQgMCAwIDEgMTIuMS0yMi4zNyA0NC40MyA0NC40MyAwIDAgMSAyMi42Ni0xMS45NiA0NC43NyA0NC43NyAwIDAgMSAyNS41NyAyLjQ4IDQ0LjEgNDQuMSAwIDAgMSAxOS44NiAxNi4xIDQzLjMyIDQzLjMyIDAgMCAxLTUuNSA1NS4xOCA0NC41MyA0NC41MyAwIDAgMS0zMS4zIDEyLjhabTAtOTIuNmE0OS45MyA0OS45MyAwIDAgMC0yNy41IDguMjQgNDkuMDEgNDkuMDEgMCAwIDAtMTguMjMgMjEuOTMgNDguMzEgNDguMzEgMCAwIDAtMi44MSAyOC4yNCA0OC42OSA0OC42OSAwIDAgMCAxMy41NCAyNS4wMiA0OS42NyA0OS42NyAwIDAgMCAyNS4zNCAxMy4zOGM5LjYgMS44OCAxOS41NS45MSAyOC42LTIuNzhhNDkuMzYgNDkuMzYgMCAwIDAgMjIuMi0xOCA0OC40NSA0OC40NSAwIDAgMC02LjE1LTYxLjcyIDQ5LjggNDkuOCAwIDAgMC0zNS0xNC4zWm0tMS40OS0zNC4xMWMtMTEuNzUgOC43OC05LjcgMjIuMjItOS43IDIyLjIycy03LjQtMTguOS0xNi45OC0zMC41Yy0xLjMgMTQuOSAzLjQ0IDM0LjYzIDMuNDQgMzQuNjNzLTYtMTIuMjMtMjAuNzEtMTIuOTJjMTIuMTYgNi45NCAxNi45MiAxOS40IDE4IDIyLjc1YTQ5LjcyIDQ5LjcyIDAgMCAxIDI0LjE0LTcuMTljLS45Ny0zLjEyLTQuMzktMTYuMjUgMS44MS0yOC45NSIvPgogIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xNC44OCA4OC40YTQuNCA0LjQgMCAwIDAtMS4yNi0zLjQyYy0uODQtLjc3LTIuMi0xLjE3LTQuMDYtMS4xN0g1LjI1djkuMTRoNC4zYzMuNTYgMCA1LjMzLTEuNTIgNS4zMy00LjU1Wm0tOS42MyA4LjAydjEwLjIzSC45NFY4MC4zSDEwYzMuMDcgMCA1LjM4LjczIDYuOTMgMi4xOSAxLjU1IDEuNDUgMi4zMyAzLjQzIDIuMzIgNS45MyAwIDIuNS0uNzkgNC40NS0yLjM3IDUuODhDMTUuMyA5NS43MyAxMyA5Ni40NCAxMCA5Ni40NWwtNC43Ni0uMDNabTIyLjEtMy4zMmg0Ljc2YzMuNDggMCA1LjIyLTEuNTIgNS4yMi00LjU1YTQuNDUgNC40NSAwIDAgMC0xLjI3LTMuMzhjLS44NC0uOC0yLjE2LTEuMjEtMy45NS0xLjIxaC00Ljc2djkuMTRabTkuNzIgMTMuNTVMMzAuNCA5Ni4xaC0zLjA2djEwLjUyaC00LjNWODAuM2g5LjRjMy4wNCAwIDUuMzUuNzMgNi45MyAyLjE5YTcuNjQgNy42NCAwIDAgMSAyLjM3IDUuODIgNy4zMyA3LjMzIDAgMCAxLTEuNzYgNS4wN2MtMS4xOCAxLjMyLTIuODcgMi4xNy01LjA5IDIuNTRsNyAxMC43LTQuODMuMDNabTIzLjI3LTlMNTUuOSA4NS4zNGwtNC40IDEyLjMxaDguODVabTEuMiAzLjI4SDUwLjNsLTIuMDUgNS43MWgtNC42bDkuODItMjUuOTNoNC45OGw5Ljc5IDI1LjkzaC00LjYxbC0yLjA3LTUuN1ptMjguNDItMTguNTRhMTAuOTIgMTAuOTIgMCAwIDEgNC4yIDYuMzFoLTQuNTRhNy4yIDcuMiAwIDAgMC0yLjg1LTMuNCA4LjU1IDguNTUgMCAwIDAtNC43LTEuMjcgOC43MyA4LjczIDAgMCAwLTQuNDggMS4xNiA3Ljk1IDcuOTUgMCAwIDAtMy4xIDMuMjggMTAuNTYgMTAuNTYgMCAwIDAtMS4xIDVjLS4wNSAxLjguMzMgMy41NyAxLjEzIDUuMTlhNy44MSA3LjgxIDAgMCAwIDMuMiAzLjI4IDkuNzEgOS43MSAwIDAgMCA0Ljc3IDEuMTMgOC41IDguNSAwIDAgMCA1LjcxLTIuMDMgOC41OCA4LjU4IDAgMCAwIDIuODQtNS41NWgtOS43N3YtMy4xNGgxMy40MXY0LjA3Yy0uMjggMS45LTEgMy43LTIuMSA1LjI4LTEuMSAxLjYtMi42IDIuOS00LjM0IDMuOGExMy4xIDEzLjEgMCAwIDEtNi4xNyAxLjRjLTIuNDEuMDUtNC43OS0uNTQtNi44OC0xLjdhMTEuOCAxMS44IDAgMCAxLTQuNjEtNC43NyAxNS43NiAxNS43NiAwIDAgMSAwLTEzLjkyIDExLjcyIDExLjcyIDAgMCAxIDQuNTktNC43MyAxMy41OSAxMy41OSAwIDAgMSA2Ljg2LTEuN2MzLjE3IDAgNS44Mi43NyA3LjkzIDIuMzFabTM1LjE0LTEuNjh2MjUuOTRoLTQuMzVWODcuMmwtNy42IDE5LjQ1aC0zLjc3bC03LjYzLTE5LjQ1djE5LjQ1aC00LjNWODAuN2g1LjJsOC43IDIwLjcxIDguNTQtMjAuN2g1LjIxWm0xOS44OCAxNi45NC00LjQzLTEyLjMxLTQuNDIgMTIuMzFoOC44NVptMS4yMSAzLjI4aC0xMS4yNmwtMi4wNCA1LjcxaC00LjYxbDkuODItMjUuOTNoNC45NGw5Ljc4IDI1LjkzaC00LjZsLTIuMDMtNS43Wm0yNS4wOS0yMC42M3YzLjQzaC03LjQ1djIyLjkyaC00LjM0VjgzLjczaC03LjRWODAuM2gxOS4xOVptNi42MSAwaC00LjMxdjI2LjM1aDQuM1Y4MC4zWm0yNC4zNyAyLjJhMTIuMDEgMTIuMDEgMCAwIDEgNC40IDYuNjloLTQuNThhOC4wNSA4LjA1IDAgMCAwLTMtMy44IDguNzUgOC43NSAwIDAgMC01LjA1LTEuNCA3LjkyIDcuOTIgMCAwIDAtNC4yNSAxLjE2IDcuOTYgNy45NiAwIDAgMC0yLjk1IDMuMjggMTIuMTUgMTIuMTUgMCAwIDAgMCAxMCA4IDggMCAwIDAgMi45NSAzLjMxIDcuOTMgNy45MyAwIDAgMCA0LjI1IDEuMTUgOC43NiA4Ljc2IDAgMCAwIDUuMDQtMS40IDguMSA4LjEgMCAwIDAgMy0zLjc0aDQuNThjLS42NSAyLjY1LTIuMiA1LTQuMzkgNi42Ni0yLjE2IDEuNjItNC44OCAyLjQ0LTguMTYgMi40NC0yLjM0LjA0LTQuNjUtLjU0LTYuNjgtMS43YTExLjU4IDExLjU4IDAgMCAxLTQuNS00Ljc0IDE2LjA2IDE2LjA2IDAgMCAxIDAtMTMuOTIgMTEuNyAxMS43IDAgMCAxIDQuNS00Ljc2IDEyLjk1IDEyLjk1IDAgMCAxIDYuNjktMS43MWMzLjI3IDAgNS45OS44MiA4LjE1IDIuNDZtMzQuMzQgNS45MmE0LjQyIDQuNDIgMCAwIDAtMS4yNi0zLjQyYy0uODUtLjc4LTIuMjEtMS4xNy00LjA2LTEuMTdoLTQuMzF2OS4xNGg0LjNjMy41NiAwIDUuMzMtMS41MiA1LjMzLTQuNTVabS05LjYzIDguMDJ2MTAuMjNoLTQuMzFWODAuM2g5LjA3YzMuMDcgMCA1LjM4LjczIDYuOTMgMi4xOSAxLjU2IDEuNDUgMi4zMyAzLjQzIDIuMzMgNS45MyAwIDIuNS0uOCA0LjQ1LTIuMzggNS44OC0xLjU5IDEuNDMtMy44OCAyLjE0LTYuODggMi4xNWwtNC43Ni0uMDNabTIxLjQyIDYuOWg5LjIydjMuMzNoLTEzLjUzVjgwLjNoNC4zdjIzLjAyWm0yNy43My01LjY3LTQuNDItMTIuMzEtNC40MyAxMi4zMWg4Ljg1Wm0xLjIxIDMuMjhoLTExLjI1bC0yLjA0IDUuNzFoLTQuNjJsOS44My0yNS45M2g0Ljk4bDkuNzkgMjUuOTNoLTQuNjJsLTIuMDYtNS43Wm0yMy45Ni0yMC42My04Ljg4IDE2Ljc1djkuNmgtNC4zNXYtOS42bC04LjkxLTE2Ljc1aDQuOThsNi4xMyAxMi4yIDYuMTItMTIuMmg0LjlaIi8+Cjwvc3ZnPgo=);
+                color-scheme: light only;
+                --core-font-size-miniscule: calc(8rem / 16);
+                --core-font-size-extra-tiny: calc(10rem / 16);
+                --core-font-size-tiny: calc(12rem / 16);
+                --core-font-size-small: calc(14rem / 16);
+                --core-font-size-regular: calc(16rem / 16);
+                --core-font-size-large: calc(18rem / 16);
+                --core-font-size-extra-large: calc(24rem / 16);
+                --core-font-size-great: calc(32rem / 16);
+                --core-color-accent-base: 36,100%,53%;
+                --core-color-dark-base: 0,0%,0%;
+                --core-color-light-base: 0,0%,100%;
+                --core-color-main: hsla(0, 0%, 33%, 1);
+                --core-color-accent: hsla(var(--core-color-accent-base), 1);
+                --core-color-secondary: hsla(0, 0%, 100%, 0.2);
+                --core-color-secondary-border: rgba(255, 255, 255, 0.8);
+                --core-color-impact: hsla(355, 100%, 57%, 1);
+                --core-color-warning: hsla(355, 100%, 71%, 1);
+                --core-color-success: hsla(148, 90%, 44%, 1);
+                --core-color-important: hsla(50, 100%, 50%, 1);
+                --core-color-background: hsla(0, 0%, 11%, 0.97);
+                --core-color-background-accent: hsla(0, 0%, 4%, 1);
+                --core-color-background-surface: hsla(0, 0%, 23%, 1);
+                --core-color-background-inverse: hsla(var(--core-color-light-base), 0.2);
+                --core-color-background-inverse-accent: hsla(var(--core-color-light-base), 1);
+                --core-color-background-tooltip: hsla(0, 0%, 7%, 0.9);
+                --core-color-background-icon-button: hsla(0, 0%, 11%, 0.9);
+                --core-color-button-disable-base: #999999;
+                --core-color-modal-overlay: hsla(var(--core-color-dark-base), 0.4);
+                --core-color-modal-glare: var(--core-color-background-inverse);
+                --core-color-text-base: var(--core-color-light-base);
+                --core-color-text: hsla(var(--core-color-text-base), 1);
+                --core-color-text-active: hsla(var(--core-color-text-base), 1);
+                --core-color-text-secondary: hsla(var(--core-color-text-base), 0.8);
+                --core-color-text-placeholder: hsla(var(--core-color-text-base), 0.6);
+                --core-color-text-inverse-base: var(--core-color-dark-base);
+                --core-color-text-inverse: hsla(var(--core-color-text-inverse-base), 1);
+                --core-color-border: hsla(var(--core-color-light-base), 0.1);
+                --core-color-focus-ring: hsla(var(--core-color-light-base), 0.4);
+                --core-focus-ring: 0 0 0px 4px var(--core-color-focus-ring);
+                --shades-high-light: hsla(var(--core-color-light-base), 0.8);
+                --core-color-scrollbar: var(--core-color-focus-ring);
+                --theme-color-accent-base: var(--dedicated-color-accent-base, var(--core-color-accent-base));
+                --theme-color-accent: hsla(var(--theme-color-accent-base), 1);
+                --theme-color-text-base: 0,0%,9%;
+                --theme-color-accent-text: hsla(var(--dedicated-color-accent-text-base, var(--theme-color-text-base)), 1);
+                --core-color-state-hover-lighten: hsla(var(--core-color-light-base), 0.12);
+                --core-color-state-active-lighten: hsla(var(--core-color-light-base), 0.16);
+                --core-color-state-hover-darken: hsla(var(--core-color-dark-base), 0.06);
+                --core-color-state-active-darken: hsla(var(--core-color-dark-base), 0.12);
+                --core-color-state-darken: hsla(var(--core-color-dark-base), 0.12);
+                --core-color-input-background: hsla(var(--core-color-light-base), 0.05);
+                --core-color-input-background-active: hsla(var(--core-color-light-base), 0.1);
+                --core-color-input-inactive: hsla(var(--core-color-light-base), 0.1);
+                --core-color-input-active: var(--core-color-accent);
+                --core-color-input-secondary-active: var(--core-color-secondary);
+                --core-color-input-secondary-active-border: var(--core-color-secondary-border);
+                --core-color-input-handle: hsla(var(--core-color-light-base), 1);
+                --core-color-chip-weigth-1: hsla(44, 5%, 59%, 1);
+                --core-color-chip-weigth-2: hsla(32, 100%, 52%, 1);
+                --core-color-chip-weigth-3: hsla(162, 100%, 33%, 1);
+                --core-color-chip-weigth-4: hsla(198, 100%, 41%, 1);
+                --core-color-chip-weigth-5: hsla(43, 100%, 47%, 1);
+                --core-color-chip-weigth-6: hsla(0, 64%, 53%, 1);
+                --core-color-chip-weigth-7: hsla(277, 90%, 41%, 1);
+                --core-color-chip-weigth-8: hsla(324, 84%, 47%, 1);
+                --core-color-chip-active: hsla(43, 76%, 87%, 0.4);
+                --core-color-chip-active-accent: hsla(43, 76%, 87%, 1);
+                --core-text-shadow-header: 1px 1px 2px rgba(0, 2, 10, 0.6);
+                --core-text-shadow-header-reverse: -1px -1px 2px rgba(0, 2, 10, 0.6);
+                --core-box-shadow-header: 0 6px 13px 0 rgba(0, 2, 10, 0.2);
+                --core-filter-blur: blur(10px);
+                --core-spacing-tiny: 4px;
+                --core-spacing-small: 8px;
+                --core-spacing-intermidiate: 12px;
+                --core-spacing-regular: 16px;
+                --core-spacing-large: 24px;
+                --core-spacing-extra-large: 32px;
+                --core-size-radius-small: 4px;
+                --core-size-radius-intermidiate: 6px;
+                --core-size-radius-regular: 8px;
+                --core-size-radius-large: 16px;
+                --core-scroll-width: 2px;
+                --core-size-icon-extra-tiny: 12px;
+                --core-size-icon-tiny: 16px;
+                --core-size-icon-small: 20px;
+                --core-size-icon-regular: 24px;
+                --core-size-icon-large: 32px;
+                --core-size-icon-extra-large: 36px;
+                --core-size-control-tiny: 24px;
+                --core-size-control-small: 32px;
+                --core-size-control-regular: 36px;
+                --core-size-control-large: 44px;
+                --core-size-control-extra-large: 52px;
+                --core-size-game-control-base: 44;
+                --core-size-game-control: calc(var(--core-size-game-control-base) * 1px);
+                --core-size-game-chip-step: 4px;
+                --core-size-modal-width-base-small: 48px;
+                --core-size-modal-width-base-regular: 64px;
+                --core-size-badge-dot: 8px;
+                --core-size-badge-tiny: 12px;
+                --core-size-badge-small: 16px;
+                --core-size-badge-medium: 20px;
+                --core-size-badge-large: 24px;
+                --core-size-ribbon: 20px;
+                --core-safe-area-inset-top: env(safe-area-inset-top, 0);
+                --core-safe-area-inset-right: env(safe-area-inset-right, 0);
+                --core-safe-area-inset-bottom: env(safe-area-inset-bottom, 0);
+                --core-safe-area-inset-left: env(safe-area-inset-left, 0);
+                --core-elevation-curtain: 2000;
+                --core-elevation-above-all: 1500;
+                --core-elevation-tooltip: 1200;
+                --core-elevation-popup: 1100;
+                --core-elevation-above-modal: 950;
+                --core-elevation-modal: 900;
+                --core-elevation-priority: 800;
+                --core-elevation-above-menu: 700;
+                --core-elevation-menu: 600;
+                --core-elevation-overlay: 500;
+                --core-elevation-above-game: 400;
+                --core-elevation-on-game: 300;
+                --core-elevation-game: 200;
+                --core-elevation-under-game: 150;
+                --core-elevation-stream: 100;
+                --core-frame-rate: 60;
+                --core-frame-time: calc(1000ms / var(--core-frame-rate));
+                --core-duration-swift: calc(var(--core-frame-time) * 3);
+                --core-duration-hasty: calc(var(--core-frame-time) * 6);
+                --core-duration-regular: calc(var(--core-frame-time) * 8);
+                --core-duration-relaxed: calc(var(--core-frame-time) * 12);
+                --core-duration-emphasized: calc(var(--core-frame-time) * 20);
+                --core-duration-pronounced: calc(var(--core-frame-time) * 48);
+                --core-duration-long: calc(var(--core-frame-time) * 60);
+                --core-duration-extraLong: calc(var(--core-frame-time) * 120);
+                --core-stream-transition: 1s;
+                --core-timing-function-snap: cubic-bezier(0.7, 0, 0.7, 1);
+                --core-timing-function-bounsback: cubic-bezier( 0.75, 0.42, 0.29, 1.6 );
+                --core-timing-function-standart: cubic-bezier(0.4, 0, 0.2, 1);
+                --core-timing-function-emphasized: cubic-bezier( 0.43, 0.87, 0.35, 0.99 );
+                --core-timing-function-deceleration: cubic-bezier(0, 0, 0.2, 1);
+                --core-timing-function-impulsive: cubic-bezier( 0.74, 0.04, 0.27, 0.97 );
+                --core-mini-chat-message-lifespan: 9800ms;
+                --core-chat-limited-modal-height: 480px;
+                --lobby-footer-height: 2rem
+            }
+
+            @media (max-width: 1023px),(height < 500px) {
+                :root {
+                    --core-color-background:hsla(0, 0%, 11%, 1);
+                    --core-size-control-compact: 40px;
+                    --core-size-control-compact-large: 44px
+                }
+            }
+
+            @media (height < 320px),(width < 360px) {
+                : root {
+                    --core-size-control:var(--core-size-control-small);
+                    --core-size-badge-medium: 16px;
+                    --core-size-badge-large: 20px
+                }
+            }
+
+            :root {
+                --ui-font-size-tiny: var(--core-font-size-extra-tiny);
+                --ui-font-size-small: var(--core-font-size-tiny);
+                --ui-font-size-regular: var(--core-font-size-small);
+                --ui-font-size-large: var(--core-font-size-regular);
+                --ui-size-radius-small: var(--core-size-radius-small);
+                --ui-size-radius-intermidiate: var(--core-size-radius-intermidiate);
+                --ui-size-radius-regular: var(--core-size-radius-regular);
+                --ui-size-radius-larger: var(--core-size-radius-large);
+                --ui-font-size-traffic-light: var(--core-font-size-tiny);
+                --ui-traffic-light-size: calc(var(--ui-font-size-traffic-light) * 1.667);
+                --ui-size-control-regular: var(--core-size-control-small);
+                --ui-size-control-large: var(--core-size-control-small);
+                --ui-size-control-small: var(--core-size-control-small);
+                --ui-size-control-tiny: var(--core-size-control-tiny);
+                --ui-size-button-regular: var(--core-size-control-regular);
+                --ui-size-icon-regular: var(--core-size-icon-small);
+                --ui-size-modal-max-width: 450px;
+                --ui-size-modal-width-base: var(--core-size-modal-width-base-small);
+                --ui-size-modal-width-small: 256px;
+                --ui-size-modal-width-regular: 320px;
+                --ui-size-modal-width-large: 360px;
+                --ui-spacing-tiny: 3px;
+                --ui-spacing-small: 6px;
+                --ui-spacing-intermidiate: 9px;
+                --ui-spacing-regular: 12px;
+                --ui-spacing-large: 18px;
+                --ui-spacing-extra-large: 24px;
+                --ui-spacing-counter-regular: 6px;
+                --ui-counter-height-large: 16px;
+                --ui-counter-height-medium: 13px;
+                --ui-counter-height-small: 10px;
+                --ui-size-modal-width-regular-legacy: 456px
+            }
+
+            @media (height >= 320px) and (width >= 360px) {
+                : root {
+                    --ui-size-control-regular:var(--core-size-control-small);
+                    --ui-size-control-large: 40px
+                }
+            }
+
+            @media (width >= 1024px) and (height >= 500px) {
+                : root {
+                    --ui-font-size-traffic-light:var(--core-font-size-small);
+                    --ui-traffic-light-size: 20px;
+                    --ui-size-icon-regular: var(--core-size-icon-small)
+                }
+            }
+
+            @media (width >= 1366px) and (height >= 500px) {
+                : root {
+                    --ui-traffic-light-size:26px;
+                    --ui-font-size-traffic-light: var(--core-font-size-large)
+                }
+            }
+
+            @media (width >= 1512px) and (height >= 500px) {
+                : root {
+                    --ui-font-size-tiny:var(--core-font-size-tiny);
+                    --ui-font-size-small: var(--core-font-size-small);
+                    --ui-font-size-regular: var(--core-font-size-regular);
+                    --ui-font-size-large: var(--core-font-size-large);
+                    --ui-font-size-traffic-light: var(--core-font-size-large);
+                    --ui-size-control-regular: var(--core-size-control-regular);
+                    --ui-size-control-large: var(--core-size-control-large);
+                    --ui-size-button-regular: var(--core-size-control-large);
+                    --ui-size-icon-regular: var(--core-size-icon-regular);
+                    --ui-size-modal-width-base: var(--core-size-modal-width-base-regular);
+                    --ui-size-modal-width-small: 320px;
+                    --ui-size-modal-width-regular: 360px;
+                    --ui-size-modal-width-large: 400px;
+                    --ui-spacing-tiny: var(--core-spacing-tiny);
+                    --ui-spacing-small: var(--core-spacing-small);
+                    --ui-spacing-intermidiate: var(--core-spacing-intermidiate);
+                    --ui-spacing-regular: var(--core-spacing-regular);
+                    --ui-spacing-large: var(--core-spacing-large);
+                    --ui-spacing-extra-large: var(--core-spacing-extra-large)
+                }
+            }
+
+            @media (width >= 1800px) and (height >= 500px) {
+                : root {
+                    --ui-font-size-traffic-light:22px;
+                    --ui-traffic-light-size: 32px
+                }
+            }
+
+            :root {
+                --game-traffic-light-background: #333333;
+                --game-traffic-light-default: linear-gradient(88.85deg, rgba(39, 174, 96, 0.784), rgba(39, 213, 112, 0.8));
+                --game-traffic-light-warning: linear-gradient(90deg, #E67E22, #F39C12);
+                --game-traffic-light-danger: linear-gradient(90deg, #CA472D, #F25B3D);
+                --game-traffic-light-mega: linear-gradient(90deg, #B6A36B, #FAF7C7);
+                --game-traffic-light-color: var(--core-color-text);
+                --game-traffic-light-color-inverse: var(--core-color-text-inverse);
+                --game-color-text: var(--core-color-text);
+                --game-color-text-active: var(--core-color-text-inverse);
+                --game-color-accent: var(--core-color-accent);
+                --game-border-background: var(--game-color-accent);
+                --game-accent-background: var(--game-color-accent);
+                --game-background: var(--core-color-background);
+                --game-drawer-background: var(--core-color-background);
+                --game-color-tabs-header-background: var(--core-color-background);
+                --game-color-tabs-active-header-background: var(--core-color-background);
+                --game-border-radius: 8px;
+                --game-color-control: var(--core-color-background-inverse);
+                --game-color-control-state: var(--core-color-state-darken);
+                --game-color-control-active: var(--core-color-input-active);
+                --game-color-control-active-state: var(--core-color-state-darken);
+                --game-color-focus-ring: hsla(var(--core-color-light-base), 0.4);
+                --game-focus-ring: 0 0 0px 4px var(--game-color-focus-ring);
+                --game-size-control: var(--core-size-control-small);
+                --game-size-icon: var(--core-size-icon-small);
+                --game-card-primary: hsl(355, 100%, 57%);
+                --game-card-border: hsl(0, 0%, 89%);
+                --game-color-home-main: hsla(47, 99%, 41%, 1);
+                --game-color-home-accent: hsl(60, 100%, 61%);
+                --game-color-away-main: hsla(227, 90%, 49%, 1);
+                --game-color-away-accent: hsl(188, 100%, 81%);
+                --game-color-draw-main: hsl(141, 100%, 22%);
+                --game-color-draw-accent: hsla(143, 100%, 60%, 1);
+                --game-dice-face-color: #FFEDD2;
+                --game-dice-dot-color: #000000;
+                --game-quick-guide-max-height: 100vh
+            }
+
+            @media (height >= 320px) and (width >= 360px) {
+                : root {
+                    --game-size-control:40px;
+                    --game-size-icon: var(--core-size-icon-regular)
+                }
+            }
+
+            @media (width >= 1366px) {
+                : root {
+                    --game-size-control:var(--core-size-control-large);
+                    --game-size-icon: var(--core-size-icon-regular)
+                }
+            }
+
+            @media (width >= 1800px) {
+                : root {
+                    --game-size-control:var(--core-size-control-extra-large);
+                    --game-size-icon: var(--core-size-icon-large)
+                }
+            }
+
+            @media (--game-media-legacy-desktop) {
+                html[data-is-legacy-mode=true]: root {
+                    --game-size-control:var(--core-size-control-extra-large);
+                    --game-size-icon: var(--core-size-control-small);
+                    --core-chat-limited-modal-height: 600px
+                }
+            }
+
+            .core-curtain {
+                z-index: var(--core-elevation-curtain);
+                position: fixed;
+                display: flex;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                flex-flow: column;
+                align-items: center;
+                justify-content: space-between
+            }
+
+            .curtain-spacer {
+                flex: 1
+            }
+
+            .curtain_lifted {
+                animation: .5s liftCurtain var(--core-timing-function-standart) forwards
+            }
+
+            .curtain_dead {
+                display: none
+            }
+
+            .curtain__background::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: var(--curtain-filter)
+            }
+
+            .curtain__background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--curtain-bg);
+                background-size: cover;
+                transition-duration: var(--core-duration-pronounced);
+                transition-timing-function: var(--core-timing-function-emphasized)
+            }
+
+            .curtain_undead .curtain__background {
+                filter: saturate(0)
+            }
+
+            .curtain__background::after {
+                content: '';
+                position: absolute;
+                display: block;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                opacity: 0;
+                visibility: hidden;
+                transition-duration: var(--core-duration-pronounced);
+                transition-timing-function: var(--core-timing-function-emphasized);
+                background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6),rgba(0,0,0,.8))
+            }
+
+            .curtain_undead .curtain__background::after {
+                opacity: 1;
+                visibility: visible
+            }
+
+            .curtain-game-logo {
+                position: relative;
+                display: flex;
+                width: 35vmin;
+                padding-top: 6px;
+                max-width: 447px;
+                flex: 1;
+                flex-direction: column;
+                align-items: center;
+                gap: var(--curtain-operator-game-logo-gap,0)
+            }
+
+            .curtain_undead .curtain-game-logo {
+                display: none
+            }
+
+            .core-curtain__portal {
+                position: relative;
+                display: none;
+                width: 70vmin;
+                max-width: 447px;
+                color: var(--core-color-text)
+            }
+
+            .curtain_undead .curtain__portal {
+                display: block
+            }
+
+            .core-curtain .curtain-operator-logo {
+                width: 100%;
+                height: var(--operator-logo-height,0%);
+                background: var(--curtain-operator-logo,none);
+                background-position: bottom;
+                background-repeat: no-repeat;
+                background-size: contain
+            }
+
+            .core-curtain .curtain-game-logo-img {
+                width: 100%;
+                height: 100%;
+                background: var(--curtain-game-logo);
+                background-size: contain;
+                background-position: top
+            }
+
+            .curtain-bottom-cnt {
+                z-index: 1;
+                display: flex;
+                width: 100%;
+                margin: 0 0 5vh;
+                text-align: center;
+                flex: 1;
+                flex-flow: column;
+                align-items: center;
+                justify-content: flex-end
+            }
+
+            .curtain-footer {
+                position: fixed;
+                display: flex;
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                padding: var(--core-spacing-regular);
+                color: var(--core-color-text-placeholder);
+                border: 1px solid rgba(255,255,255,.2);
+                border-radius: var(--core-size-radius-regular);
+                background: rgba(0,0,0,.3);
+                visibility: hidden;
+                flex-direction: column;
+                gap: 6px
+            }
+
+            .curtain-footer.visible {
+                visibility: visible
+            }
+
+            .curtain-footer-title {
+                font-size: var(--ui-font-size-regular);
+                line-height: 1.15;
+                text-align: left;
+                place-items: center;
+                overflow-wrap: break-word
+            }
+
+            .curtain-footer-msg {
+                width: 100%;
+                font-size: 8px;
+                line-height: 11px;
+                text-align: left;
+                place-items: center
+            }
+
+            @media (width < 1024px) and (height < 500px) and (orientation: landscape) {
+                .curtain-footer {
+                    flex-direction:row;
+                    gap: 12px;
+                    padding: 10px 16px
+                }
+
+                .curtain-footer-title {
+                    width: min-content;
+                    font-size: 12px
+                }
+            }
+
+            @media (width > 1024px) {
+                .curtain-footer {
+                    top: auto;
+                    right: auto;
+                    bottom: 20px;
+                    left: 20px;
+                    width: 345px;
+                    padding: 20px 16px;
+                    flex-direction: column
+                }
+
+                .curtain-footer-title {
+                    font-size: 18px
+                }
+
+                .curtain-footer-msg {
+                    font-size: 12px;
+                    line-height: normal
+                }
+            }
+
+            .core-curtain .curtain-logo {
+                position: relative;
+                width: 15rem;
+                margin: 6vh 0 3vh;
+                max-width: 275px;
+                background: var(--core-logo-base64-url) no-repeat 50%/contain
+            }
+
+            .core-curtain .curtain-logo::after {
+                content: '';
+                display: block;
+                padding-top: 38%
+            }
+
+            .curtain-progress {
+                position: relative;
+                display: inline-flex;
+                border-radius: 3px;
+                background-color: var(--core-color-input-inactive)
+            }
+
+            .core-curtain .curtain-progress {
+                width: 13rem;
+                height: 5px;
+                max-width: 275px
+            }
+
+            .curtain_undead .curtain-progress {
+                display: none
+            }
+
+            .curtain-progress-bar,.curtain-progress-bar::-webkit-progress-bar {
+                width: 100%;
+                height: inherit;
+                font-size: 5px;
+                color: var(--core-color-accent);
+                border: none;
+                border-radius: 3px;
+                background: 0 0;
+                appearance: none
+            }
+
+            .curtain-progress-bar::-webkit-progress-value {
+                border-radius: 3px;
+                background-color: var(--core-color-accent);
+                transition: width var(--core-duration-regular) ease
+            }
+
+            .curtain-progress-bar::-moz-progress-bar {
+                border-radius: 3px;
+                background-color: var(--core-color-accent)
+            }
+
+            @media (max-width: 1366px) {
+                .curtain {
+                    background-size:cover
+                }
+            }
+
+            @media (max-width: 1024px) {
+                .curtain-game-logo {
+                    width:27vw;
+                    flex: 2
+                }
+
+                .core-curtain .curtain-game-logo-img {
+                    background-position: var(--background-position,bottom)
+                }
+
+                .core-curtain .curtain-logo {
+                    width: 20vw;
+                    margin: 3vh 0 3.5vh
+                }
+
+                .core-curtain .curtain-progress {
+                    width: 20vw;
+                    height: 3px;
+                    margin-top: var(--core-spacing-extra-large)
+                }
+            }
+
+            @media (orientation: portrait) and (max-width:620px) {
+                .curtain-game-logo {
+                    width:40vw;
+                    margin-top: 0
+                }
+
+                .core-curtain .curtain-game-logo-img {
+                    background-position: var(--background-position,center)
+                }
+
+                .core-curtain .curtain-progress {
+                    width: 30vw;
+                    margin-top: 0
+                }
+
+                .core-curtain .curtain-logo {
+                    width: 35vw;
+                    margin: 2vh 0 6vh
+                }
+
+                .core-curtain .curtain-operator-logo {
+                    background-position: bottom
+                }
+            }
+
+            @keyframes liftCurtain {
+                0% {
+                    opacity: 1;
+                    visibility: visible
+                }
+
+                100% {
+                    opacity: 0;
+                    visibility: hidden;
+                    display: none
+                }
+            }
+
+            .curtain-footer {
+                opacity: 0;
+                height: 5vh
+            }
+
+            body,html {
+                height: 100%;
+                margin: 0;
+                padding: 0
+            }
+
+            html:not(.dedicated) .curtain-logo {
+                background-image: none
+            }
+
+            html {
+                background: var(--lobby-background-regular)
+            }
+
+            .core-curtain .curtain-game-logo-img {
+                background-size: 75%
+            }
+
+            @media (min-width: 1025px) {
+                .core-curtain .curtain-game-logo-img {
+                    background-position:50% 90%
+                }
+            }
+
+            body.dedicated .curtain-game-logo-img {
+                background-size: 100%
+            }
+        </style>
+        <script defer src="main.494e07ec6950e7bab243.js"></script>
+        <link href="main.feff2a8cce9ce57761ea.css" rel="stylesheet">
+    </head>
+    <body>
+        <div data-testid="curtain" class="curtain core-curtain">
+            <div class="curtain__background"></div>
+            <div class="curtain-spacer"></div>
+            <div class="curtain-game-logo">
+                <div class="curtain-operator-logo"></div>
+                <div class="curtain-game-logo-img"></div>
+            </div>
+            <div class="curtain__portal"></div>
+            <div class="curtain-bottom-cnt">
+                <div class="curtain-progress">
+                    <progress class="curtain-progress-bar" max="100" value="5"></progress>
+                </div>
+                <div class="curtain-logo"></div>
+                <div class="curtain-footer">
+                    <div class="curtain-footer-title"></div>
+                    <div class="curtain-footer-msg"></div>
+                </div>
+            </div>
+        </div>
+        <div id="root" data-version="3.33.2 (0.101.3) 377374-lobby-3-33-1" data-game-version="3.33.2" data-core-version="0.101.3" data-build-number="377374-lobby-3-33-1"></div>
+    </body>
+</html>

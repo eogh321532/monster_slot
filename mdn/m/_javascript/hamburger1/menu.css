@@ -1,0 +1,76 @@
+/*-------------------------------------------------------------------------------------*
+ *  좌측메뉴                                                                           *
+ *-------------------------------------------------------------------------------------*/
+.aside {background:rgba(0,0,0,0.5); position:fixed; width:100%; min-width:0px; top:0; left:0; bottom:0; box-shadow:0 5px 15px rgba(0, 0, 0, 0.0); width:0px; overflow:hidden; transition:0.35s width ease, 0.35s min-width ease; z-index:2000; overflow-y:scroll;   -webkit-overflow-scrolling:touch;}
+.aside.in {width:100%; min-width:100%;}
+.aside2 {background:rgba(0,0,0,0.5); position:fixed; width:100%; min-width:0px; top:0; right:0; bottom:0; box-shadow:0 5px 15px rgba(0, 0, 0, 0.0); width:0px; overflow:hidden; transition:0.35s width ease, 0.35s min-width ease; z-index:2000; overflow-y:scroll;   -webkit-overflow-scrolling:touch;}
+.aside2.in {width:100%; min-width:100%;}
+.aside_wrap {float:left; width:100%; min-height:100vh; padding:0 0 30px 0; -webkit-overflow-scrolling:touch; background:#101010; position:relative; z-index:2;}
+
+.aside_top_wrap {width:100%; position:relative; height:60px; line-height:60px; padding:0 2% 0 2%; background:url(../../_image/bg_gnb.jpg) center top repeat-x; background-size:auto 100%; border-bottom:2px solid #ffb400;}
+.aside_top_left {float:left; width:100%; line-height:60px; text-align:left;}
+.aside_top_right {float:right; cursor:pointer; position:absolute; top:-2px; right:0px; font-size:30px; color:#ffffff; text-shadow:0px 0px 1px rgba(0,0,0,0.7), 2px 2px 3px rgba(98,0,0,0.7), 2px 2px 3px rgba(255,0,0,0.7);}
+.aside_top_right img{display:inline-block; width:46px;}
+
+.aside2_box1_wrap {float:left; width:100%; padding:10px;}
+.aside2_box1 {float:left; width:100%;}
+.aside2_box1 td {height:34px; line-height:34px; padding:5px 10px 5px 10px; border-bottom:1px dashed rgba(255,255,255,0.4);  font-size:13px; color:#ffffff;}
+.aside2_box1 td a{color:#ffffff;}
+.my_font01{font-weight:500; color:#ffea00;}
+
+.aside2_box2_wrap {float:left; width:100%; padding:10px; background:rgba(255,255,255,0.1);}
+.aside2_box2 {float:left; width:100%;}
+.aside2_box3_wrap {float:left; width:100%; margin:10px 0 0 0;}
+.aside2_box3_wrap{float:left; width:100%;  padding:10px 0px 20px; border-bottom:1px solid #414141;}
+
+.aside_btn1  {background:linear-gradient(to right, #f6be3f 0%, #e8a756 20%, #fff27d 50%, #e8a756 80%, #f6be3f 100%); width:100%; height:54px; line-height:54px; text-align:center; display:inline-block; color:#000000; font-size:14px; font-weight:600; border-radius:0px;}
+.aside_btn2  {background:linear-gradient(to right, #9a9a9a 0%, #9f9f9f 20%, #bebebe 50%, #9f9f9f 80%, #9a9a9a 100%); width:100%; height:54px; line-height:54px; text-align:center; display:inline-block; color:#000000; font-size:14px; font-weight:600; border-radius:0px;}
+
+
+/*-------------------------------------------------------------------------------------*
+ *  별도추가                                                                           *
+ *-------------------------------------------------------------------------------------*/
+.m_my_wrap{float:left; width:100%; display:flex; align-items:center; padding:20px 15px; background:rgba(0,0,0,0.9); border-radius:0px;}
+.m_my_wrap_left{float:left; width:45%;}
+.mmwl_top{float:left; width:100%;  font-weight:300; font-size:14px; color:#ffffff;}
+.mmwl_top span{display:block; margin:5px 0 0 0;border-bottom:1px dashed rgba(255,255,255,0.4); font-size:18px; color:#ffb400;}
+.mmwl_bottom{float:left; margin:10px 0 0 0;  width:100%;  font-weight:300; font-size:14px; color:#ffffff;}
+.mmwl_bottom span{display:inline-block; margin:0 0 0 10px;}
+.m_my_wrap_right{float:left; width:55%; display:flex; align-items:center; justify-content:space-between;}
+.mmwr_btn{float:left; width:49%;}
+.mmwr_btn a{display:block; background:linear-gradient(to right, #f6be3f 0%, #e8a756 20%, #fff27d 50%, #e8a756 80%, #f6be3f 100%); min-width:70px; padding:20px 5px; width:100%; display:block; text-align:center; border-radius:0px;  font-weight:400; font-size:14px; color:#000000;}
+.mmwr_btn:nth-child(2) a{filter:hue-rotate(230deg);}
+.mmwr_btn a i{margin:0 5px 0 0;}
+.mmwr_btn a span{display:block; font-size:16px; color:#000000;}
+
+.aside::-webkit-scrollbar {width: 5px; display:none;}
+.aside::-webkit-scrollbar-thumb {height:10%; background:rgba(255,255,255,0.0); border-radius: 2px;}
+.aside::-webkit-scrollbar-track {background:rgba(255,255,255,0.00);}
+.aside2::-webkit-scrollbar {width: 5px;}
+.aside2::-webkit-scrollbar-thumb {height:10%; background:rgba(255,255,255,0.1); border-radius: 2px;}
+.aside2::-webkit-scrollbar-track {background:rgba(255,255,255,0.08);}
+
+
+
+
+
+.m_h_name{float:left; margin:0 10px 0 0;  font-weight:500; font-size:16px; color:#ffffff;}
+.m_game_title{float:left; width:100%; padding:10px; text-align:center;}
+
+
+.left_game_box{float:left; width:100%; margin:20px 0 0 0;}
+.left_game_title{float:left; width:100%; height:44px; margin:0 0 1px 0; display:flex; align-items:center; padding:0 20px 0 20px; border-radius:0px; background:#222222; border:1px solid #222222;  font-weight:500; font-size:14px; color:#ffffff; cursor:pointer;}
+.left_game_title .lgt_img1{display:inline-block; width:24px; margin:0 10px 0 0; transition: 0.3s all ease-out;}
+.left_game_title i{display:inline-block; margin:0 0 0 auto; transition: 0.3s all ease-out;}
+.left_game_title.active{background:linear-gradient(to right, #f6be3f 0%, #e8a756 20%, #fff27d 50%, #e8a756 80%, #f6be3f 100%); box-shadow:0 1px 1px 1px rgba(255,0,0,0.5);}
+.left_game_title.active i{transform:rotate(-180deg);}
+
+.left_game_list{float:left; width:100%; background:#1b1b1b; padding:10px;}
+.lgl_game{float:left; width:100%; margin:0 0 1px 0; height:40px; line-height:40px; background:#090909; border-radius:0px;}
+.lgl_game a{position:relative; display:flex; align-items:center; justify-content: space-between; padding:0 20px 0 10px; cursor:pointer;  font-weight:500; font-size:12px; color:#ededed;}
+
+.sports_country_odd{display:inline-block; height:24px; line-height:24px; font-size: 12px; background:#393939; border:1px solid #393939; padding-left: 6px; border-radius:0px; padding-right: 6px; color:#c6c6c6; transition:all 0.5s;}
+
+
+
+

@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+/*-------------------------------------------------------------------------------------*
+ *  게시판                                                                             *
+ *-------------------------------------------------------------------------------------*/
+.list_title1     {background:linear-gradient(#b00000 0%, #000000 100%); color:#ffffff; line-height:48px; text-align:center; font-weight:700;}
+.list_notice1    {background:rgba(0,0,0,0.5); border-bottom:1px solid rgba(255,255,255,0.1); color:#ffffff; padding: 15px 10px; text-align:center;}
+.list_notice2    {background:rgba(0,0,0,0.5); border-bottom:1px solid rgba(255,255,255,0.1); color:#ffffff; padding: 15px 10px; font-weight:500; font-size:13px;}
+.list1           {background:rgba(0,0,0,0.3); border-bottom:1px solid rgba(255,255,255,0.1); color:#ffffff; padding: 15px 10px; text-align:center;}
+.list2           {background:rgba(0,0,0,0.3); border-bottom:1px solid rgba(255,255,255,0.1); color:#ffffff; padding: 15px 10px; font-weight:500;}
+
+.list3 {font-size:12px; background:rgba(0,0,0,0.7); border-bottom:1px solid rgba(255,255,255,0.1); color:#ffffff; line-height:1.5; padding:25px 50px 25px 117px; text-align:justify; height:140px; overflow-y:auto;}/* 쪽지함 아코디언 컨텐츠영역 */
+
+.write_title_top {border-top:1px solid #b00000;}
+.write_title     {background:rgba(0,0,0,0.5); border-bottom:1px solid rgba(255,255,255,0.1); height:50px; color:#ffffff; padding:15px 20px 15px 20px; line-height:21px; width:180px; font-weight:500; text-align:center;}  
+.write_basic     {background:rgba(0,0,0,0.3); border-bottom:1px solid rgba(255,255,255,0.1); min-height:50px; color:#ffffff; padding:15px 20px 15px 20px; line-height:21px;}
+
+.view1           {background:linear-gradient(#b00000 0%, #000000 100%); color:#ffffff; padding:0 20px 0 20px; width:100%; height:50px; line-height:48px; font-size:16px; letter-spacing:0pt; font-weight:500;}
+.view2           {background:rgba(0,0,0,0.3); border-bottom:1px solid rgba(255,255,255,0.1); padding:12px 20px 10px 20px; width:100%; line-height:26px; min-height:300px; color:#ffffff;}
+.view_box        {background:rgba(0,0,0,0.5); padding:3px 8px 4px 8px; color:#ffffff; line-height:12px; text-align:center; display:inline-block;  font-size:12px; border-radius:100px; margin:0 5px 0 0; font-weight:100;}
+
+.page_wrap       {float:left; width:100%; height:40px; text-align:center;}
+.page_wrap ul li {display:inline;}
+.page            {background:rgba(0,0,0,0.3); display:inline-block; padding:12px 16px 12px 16px; color:#9fa19f; border-radius:15px;}
+.pageon          {background:linear-gradient(#525763 0%, #252429 100%); display:inline-block; padding:12px 16px 12px 16px; color:#ffffff; border-radius:15px; font-weight:500;}
+
+.info_wrap       {background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); float:left; width:100%; padding:25px 0 30px 0; border-radius:5px;}
+.info1           {float:left; width:100%; line-height:26px; color:#d4af6d; padding:0 20px 0 20px; font-size:18px; font-weight:700; font-family: 'EsaManru'; font-weight:500;}
+.info2           {float:left; width:100%; line-height:26px; color:#ffffff; padding:5px 20px 0 20px; font-size:16px; font-weight:600; font-family: 'EsaManru'; font-weight:500;}
+.info3           {float:left; width:100%; line-height:26px; color:#eeeeee; padding:5px 20px 0 23px; font-size:14px; font-weight:400;}
+
+
+.info_wrap2{display:flex; background:url(../_image/bg_left.jpg) center center no-repeat; background-size:cover; border:1px solid rgba(255,255,255,0.1); float:left; width:100%; padding:25px 0 30px 0; border-radius:5px;}
+.info_left{float:left; width:24%; display:flex; justify-content: flex-end; padding:5px 20px 0 20px; font-family: 'EsaManru'; font-weight:700; font-size:22px; color:#ffffff; text-shadow:0px 0px 1px rgba(0,0,0,0.7), 2px 2px 3px rgba(98,0,0,0.7),2px 2px 3px rgba(255,0,0,0.7);}
+.info_right{float:left; width:76%; padding:0 20px 0 20px; border-left:1px solid #b00000; line-height:26px; font-family: 'EsaManru'; font-weight:300; font-size:14px; color:#ffffff;}
+
+/*-------------------------------------------------------------------------------------*
+ *  버튼                                                                               *
+ *-------------------------------------------------------------------------------------*/
+.btn1_1         {display:inline-block; text-align:center; border-radius:100px; color:#ffffff; font-size:12px; letter-spacing:0pt; font-weight:500; text-shadow:1px 1px 1px rgba(0,0,0,0.0); box-shadow:0 0 5px rgba(255,0,0,0.7);}
+.btn1_2         {display:inline-block; text-align:center; border-radius:100px; color:#ffffff; font-size:12px; letter-spacing:0pt; font-weight:500; text-shadow:1px 1px 1px rgba(0,0,0,0.0); box-shadow:0 0 5px rgba(80,83,97,0.7);}
+.btn2_1         {display:inline-block; text-align:center; border-radius:100px; color:#ffffff; font-size:14px; letter-spacing:0pt; font-weight:500; text-shadow:1px 1px 1px rgba(0,0,0,0.0); box-shadow:0 0 5px rgba(255,0,0,0.7);}
+.btn2_2         {display:inline-block; text-align:center; border-radius:100px; color:#ffffff; font-size:14px; letter-spacing:0pt; font-weight:500; text-shadow:1px 1px 1px rgba(0,0,0,0.0); box-shadow:0 0 5px rgba(80,83,97,0.7);}
+.btn3_1         {display:inline-block; text-align:center; border-radius:100px; color:#ffffff; font-size:16px; letter-spacing:0pt; font-weight:500; text-shadow:1px 1px 1px rgba(0,0,0,0.0); box-shadow:0 0 5px rgba(255,0,0,0.7);}
+.btn3_2         {display:inline-block; text-align:center; border-radius:100px; color:#ffffff; font-size:16px; letter-spacing:0pt; font-weight:500; text-shadow:1px 1px 1px rgba(0,0,0,0.0); box-shadow:0 0 5px rgba(80,83,97,0.7);}
+
+.btn_wrap_right        {float:left; width:100%; text-align:right;}
+.btn_wrap_right ul li  {display:inline;}
+.btn_wrap_center       {float:left; width:100%; text-align:center;}
+.btn_wrap_center ul li {display:inline;}
+
+.btn1_1         {background:linear-gradient(#b00000 0%, #000000 100%); min-width:90px; min-height:36px; padding:0 15px 0 15px; line-height:36px;}
+.btn1_1:hover   {background:linear-gradient(#ff0000 0%, #000000 100%);}
+
+.btn1_2         {background:linear-gradient(#515159 0%, #0f0f10 100%); min-width:90px; min-height:36px; padding:0 15px 0 15px; line-height:36px;}
+.btn1_2:hover   {background:linear-gradient(#8992a9 0%, #0f0f10 100%);}
+
+.btn2_1         {background:linear-gradient(#b00000 0%, #000000 100%); min-width:140px; height:44px; line-height:44px;}
+.btn2_1:hover   {background:linear-gradient(#ff0000 0%, #000000 100%);}
+
+.btn2_2         {background:linear-gradient(#515159 0%, #0f0f10 100%); min-width:140px; height:44px; line-height:44px;}
+.btn2_2:hover   {background:linear-gradient(#8992a9 0%, #0f0f10 100%);}
+
+.btn3_1         {background:linear-gradient(#b00000 0%, #000000 100%); min-width:200px; height:50px; line-height:50px;}
+.btn3_1:hover   {background:linear-gradient(#ff0000 0%, #000000 100%);}
+
+.btn3_2         {background:linear-gradient(#515159 0%, #0f0f10 100%); min-width:200px; height:50px; line-height:50px;}
+.btn3_2:hover   {background:linear-gradient(#8992a9 0%, #0f0f10 100%);}
+
+.division1      {background:rgba(255,255,255,0.15); display:inline-block; text-align:center; min-width:70px; padding:6px 8px 6px 8px; line-height:12px; color:#b1b1b1; font-size:12px; font-weight:300; border-radius:5px;}
+.division2      {background:#8f81ff; display:inline-block; text-align:center; min-width:70px; padding:6px 8px 6px 8px; line-height:12px; color:#ffffff; font-size:12px; font-weight:300; border-radius:5px;}
+.division3      {background:; display:inline-block; text-align:center; min-width:70px; padding:6px 5px 6px 5px; line-height:12px; color:#ffffff; font-size:12px; border-radius:3px; font-family:'EsaManru'; font-weight:700; font-style:italic; text-shadow:0px 0px 1px rgba(0,0,0,0.7), 2px 2px 3px rgba(98,0,0,0.7),2px 2px 3px rgba(255,0,0,0.7);}
+
+
+
+
+/*-------------------------------------------------------------------------------------*
+ *  탭                                                                                 *
+ *-------------------------------------------------------------------------------------*/
+.tab_wrap       {float:left; margin:0 0 0 0; padding:0px;}
+.tab_wrap ul li {float:left; margin:0 5px 0 0 ;}
+.tab            {background:rgba(255,255,255,0.1); min-width:120px; height:42px; line-height:42px; text-align:center; display:inline-block; font-size:14px; font-weight:700; color:#b1b1b1; border-radius:0 10px 5px 5px;}
+.tab:hover      {background:url(../_image/bg_left.jpg) center center no-repeat; background-size:cover; color:#ffffff;}
+.tabon          {background:url(../_image/bg_left.jpg) center center no-repeat; background-size:cover; box-shadow:1px 1px 0 rgba(255,255,255,0.1) inset; min-width:120px; height:42px; line-height:42px; text-align:center; display:inline-block; font-size:14px; font-weight:700; color:#ffffff; border-radius:0 10px 5px 5px;}
+
+/*-------------------------------------------------------------------------------------*
+ *  폰트                                                                               *
+ *-------------------------------------------------------------------------------------*/
+.font01 {color:#ffffff; font-weight:500;}
+.font02 {color:#000000; font-weight:500;}
+.font03 {color:#d7d7d7;}
+.font04 {color:#484848;}
+.font05 {color:#fff600; font-weight:500;}
+.font06 {color:#34cd0e; font-weight:500;}
+.font07 {color:#15c1db; font-weight:500;}
+.font08 {color:#7889af; font-weight:500;}
+.font09 {color:#00f964; font-weight:500;}
+.font10 {color:#ff6600; font-weight:500;}
+
+.font11 {color:#fff600; font-weight:500;}
+.font12 {color:#dddddd; font-weight:500;}
+.font13 {color:#b0977f; font-weight:500;}
+.font14 {color:#d9ae64;}
+.font15 {color:#ffea00; font-weight:500;}
+
+.font21 {color:#9d96ff; font-weight:500; font-size:20px; letter-spacing:-1px; font-family: 'EsaManru';}
+.font22 {color:#ffcc00; font-weight:500; font-size:20px; letter-spacing:-1px; font-family: 'EsaManru';}
+
+
+/*-------------------------------------------------------------------------------------*
+ *  인풋                                                                               *
+ *-------------------------------------------------------------------------------------*/
+.input1       {background-color:#252429; border:1px solid #111111; padding:4px 0 4px 5px; color:#ffffff; border-radius:5px; height:34px;}
+.input2       {background-color:#252429; border:1px solid #111111; padding:4px 0 4px 5px; color:#ffffff; border-radius:5px;}
+
+

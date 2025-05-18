@@ -1,0 +1,353 @@
+@charset "utf-8";
+
+/*-------------------------------------------------------------------------------------*
+ *   베놈 전용                                                                          *
+ *-------------------------------------------------------------------------------------*/
+.left_game li:hover a{
+	-webkit-animation: left_gamelia 0.6s linear both;
+	        animation: left_gamelia 0.6s linear both;
+} 
+@keyframes left_gamelia {
+  0% {
+    letter-spacing:-10px;
+  }
+  100% {
+   letter-spacing:0px;
+  }
+}
+.left_game_box:hover .left_item{
+	-webkit-animation: left_item 0.6s linear both;
+	        animation: left_item 0.6s linear both;
+} 
+@keyframes left_item {
+  0% {
+    right:0;
+  }
+  50% {
+   right:-10px;
+  }  
+  100% {
+   right:0;
+  }
+}
+.left_menu_box li:hover .left_arrow{
+	-webkit-animation: left_arrow 0.6s linear both;
+	        animation: left_arrow 0.6s linear both;
+} 
+@-webkit-keyframes left_arrow {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-2px);
+            transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(2px);
+            transform: translateX(2px);
+  }
+  80% {
+    -webkit-transform: translateX(1px);
+            transform: translateX(1px);
+  }
+  90% {
+    -webkit-transform: translateX(-1px);
+            transform: translateX(-1px);
+  }
+}
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+  }
+}
+
+.logo,.out_login_logo{
+	-webkit-animation: logo 3.9s ease-in-out infinite both;
+	        animation: logo 3.9s ease-in-out infinite both;
+}
+@keyframes logo{
+  0% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  25% {
+    -webkit-filter: brightness(1.8);
+            filter: brightness(1.8);
+  }
+  50% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+}
+
+.game_list li:hover a,.main_game_list li:hover a{
+	-webkit-animation: fade-in-top 0.9s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-top 0.9s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes fade-in-top {
+  from {
+    -webkit-transform: translateX(0px) rotateY(0deg) skew(0deg,0deg);
+            transform: translateX(0px) rotateY(0deg) skew(0deg,0deg);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+			filter: brightness(1);
+  }
+  5% {
+    -webkit-transform: translateX(0px) rotateY(5deg) skew(3deg,0deg);
+            transform: translateX(0px) rotateY(5deg) skew(3deg,0deg);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+			filter: brightness(1.5);
+  }
+}
+
+.main_quick_menu li:hover a{
+	-webkit-animation: quick_menu 0.9s ease-in-out infinite both;
+	        animation: quick_menu 0.9s ease-in-out infinite both;
+}
+@keyframes quick_menu{
+  0% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  25% {
+    -webkit-filter: brightness(1.8);
+            filter: brightness(1.8);
+  }
+  50% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+}
+
+
+.out_login_item{
+	-webkit-animation: out_login_item 3.9s ease-in-out infinite both;
+	        animation: out_login_item 3.9s ease-in-out infinite both;
+}
+@keyframes out_login_item{
+  0% {
+    -webkit-transform: translateY(0px) rotateY(0deg) skew(0deg,0deg);
+            transform: translateY(0px) rotateY(0deg) skew(0deg,0deg);
+  }
+  50% {
+    -webkit-transform: translateY(10px) rotateY(5deg) skew(0deg,0deg);
+            transform: translateY(10px) rotateY(5deg) skew(0deg,0deg);
+  }
+  100% {
+    -webkit-transform: translateY(0px) rotateY(0deg) skew(0deg,0deg);
+            transform: translateY(0px) rotateY(0deg) skew(0deg,0deg);
+  }
+}
+
+.out_login_wrap{
+	-webkit-animation: out_login_wrap 3.9s ease-in-out infinite both;
+	        animation: out_login_wrap 3.9s ease-in-out infinite both;
+}
+@keyframes out_login_wrap{
+  0% {
+	 background-size:100% 100%;
+  }
+  50% {
+	 background-size:101% 101%;
+  }
+  100% {
+     background-size:100% 100%;
+  }
+}
+
+
+[class*="btn"]:hover{
+	-webkit-animation: classbtn 0.4s ease-in-out both;
+	        animation: classbtn 0.4s ease-in-out both;
+}
+@keyframes classbtn{
+  0% {
+	 opacity:0.3;
+  }
+  100% {
+	 opacity:1;
+  }
+
+
+
+
+/*-------------------------------------------------------------------------------------*
+ *  일반적인                                                                           *
+ *-------------------------------------------------------------------------------------*/
+/* mouseover1 */
+.mouseover1{
+	animation-name: mouseover1;
+	-webkit-animation-name: mouseover1;	
+
+	animation-duration: 0.2s;	
+	-webkit-animation-duration: 0.2s;
+
+	animation-timing-function: ease-out;	
+	-webkit-animation-timing-function: ease-out;	
+
+	visibility: visible !important;	
+}
+
+@keyframes mouseover1 {
+	0% {
+		transform: scale(1.05);
+	}		
+	100% {
+		transform: scale(1);
+	}			
+}
+
+
+/* mouseover2 */
+.mouseover2{
+	animation-name: mouseover2;
+	-webkit-animation-name: mouseover2;	
+
+	animation-duration: 0.5s;	
+	-webkit-animation-duration: 0.5s;
+
+	animation-timing-function: ease-out;	
+	-webkit-animation-timing-function: ease-out;	
+
+	visibility: visible !important;	
+}
+
+@keyframes mouseover2 {
+	0% {
+		transform: scale(1.1); opacity:0.7;
+	}		
+	100% {
+		transform: scale(1); opacity:1.0;
+	}			
+}
+
+
+/*-------------------------------------------------------------------------------------*
+ *  레이어팝업 띄우는 스타일 시작                                                      *
+ *-------------------------------------------------------------------------------------*/
+/* 한개의 스타일 */
+.popup_style01 {animation-name: popup_style01; -webkit-animation-name: popup_style01; animation-duration: 1.1s; -webkit-animation-duration: 1.1s; animation-timing-function: ease-out; -webkit-animation-timing-function: ease-out;	
+				transform-origin: 50% 0%; -ms-transform-origin: 50% 0%; -webkit-transform-origin: 50% 0%;}
+				
+				@keyframes popup_style01 {
+					0%   {transform: scaleY(0.1);}
+					40%  {transform: scaleY(1.02);}
+					60%  {transform: scaleY(0.98);}
+					80%  {transform: scaleY(1.01);}
+					100% {transform: scaleY(0.98);}				
+					80%  {transform: scaleY(1.01);}
+					100% {transform: scaleY(1);}							
+				}
+				
+/* 한개의 스타일 */
+.popup_style02 {animation-name: popup_style02; -webkit-animation-name: popup_style02; animation-duration: 0.8s;	-webkit-animation-duration: 0.8s; animation-timing-function: ease-in-out; -webkit-animation-timing-function: ease-in-out; visibility: visible !important;}
+
+				@keyframes popup_style02 {
+					0%   {opacity: 0.0;}
+					100% {opacity: 1;}	
+				}
+
+/* 한개의 스타일 */
+.popup_style03 {animation-name: popup_style03; -webkit-animation-name: popup_style03; animation-duration: 1.0s; -webkit-animation-duration: 1.0s; animation-timing-function: ease-out; -webkit-animation-timing-function: ease-out;	
+				transform-origin: 100% 0%; -ms-transform-origin: 100% 0%; -webkit-transform-origin: 100% 0%;}
+
+				@keyframes popup_style03 {
+					0%   {transform: scaleX(0.3);}
+					40%  {transform: scaleX(1.02);}
+					60%  {transform: scaleX(0.98);}
+					80%  {transform: scaleX(1.01);}
+					100% {transform: scaleX(0.98);}				
+					80%  {transform: scaleX(1.01);}
+					100% {transform: scaleX(1);}							
+				}
+
+/* 한개의 스타일 */
+.popup_style04 {animation-name: popup_style04; -webkit-animation-name: popup_style04; animation-duration: 0.7s;	-webkit-animation-duration: 0.7s; animation-timing-function: ease; -webkit-animation-timing-function: ease;	visibility: visible !important;}
+
+				@keyframes popup_style04 {
+					0%   {transform: translateY(-300%);}			
+					100% {transform: translateY(0%);}		
+				}
+
+/* 한개의 스타일 */
+.popup_style05 {animation-name: popup_style05; -webkit-animation-name: popup_style05; animation-duration: 0.5s;	-webkit-animation-duration: 0.5s; animation-timing-function: ease; -webkit-animation-timing-function: ease;	visibility: visible !important;}
+
+				@keyframes popup_style05 {
+					0%   {transform: translateY(-300%) scaleX(4.0);}			
+					100% {transform: translateY(0%) scaleX(1);}		
+				}
+
+/* 한개의 스타일 */
+.popup_style06{animation-name: popup_style06; -webkit-animation-name: popup_style06; animation-duration: 1.1s; -webkit-animation-duration: 1.1s; animation-timing-function: ease; -webkit-animation-timing-function: ease; visibility: visible !important;}
+
+				@keyframes popup_style06 {
+					0%   {transform: translateY(-300%) scaleX(4.0);}	
+					50%  {transform: translateY(2%) scaleX(1.3);}				
+					100% {transform: translateY(0%) scaleX(1);}		
+				}
+
+
+
+/*-------------------------------------------------------------------------------------*
+ *  게임 (큰이미지)                                                                    *
+ *-------------------------------------------------------------------------------------*/
+/* game1 */
+.game1 {
+	animation-name: game1;
+	-webkit-animation-name: game1;	
+
+	animation-duration: 0.3s;	
+	-webkit-animation-duration: 0.3s;
+
+	animation-timing-function: ease-out;	
+	-webkit-animation-timing-function: ease-out;	
+	
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;	
+	
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;	
+
+	visibility: visible !important;	
+}
+
+@keyframes game1 {
+	0%   {transform:scale(1) scaleX(1);}		
+	50%  {transform:scale(1.03) scaleX(1.1); box-shadow:#fffc00 2px 2px 30px -1px;}		
+	100% {transform:scale(1.05) scaleX(1); box-shadow:#3e62e1 2px 2px 30px -1px;}			
+}
+

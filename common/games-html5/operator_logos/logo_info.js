@@ -4372,7 +4372,7 @@ UHTPatch({
 		var mgckey = encodeURIComponent(gameConfig.mgckey);
 		var ingameLobbyApiURL = encodeURIComponent(gameConfig.ingameLobbyApiURL);	
 		//var src = `${ServerOptions.serverUrl}/gs2c/common/lobby/v1/apps/lobby/1.0.0/meta.html?mgckey=${mgckey}&symbol=${gameSymbol}&language=${gameConfig.lang}&currency=${gameConfig.currency}&region=${gameConfig.region}&ingameLobbyApiURL=${ingameLobbyApiURL}&vendor=slots`;
-		var src = `/gs2c/common/lobby/v1/apps/lobby/1.0.0/meta.html?mgckey=${mgckey}&symbol=${gameSymbol}&language=${gameConfig.lang}&currency=${gameConfig.currency}&region=${gameConfig.region}&ingameLobbyApiURL=${ingameLobbyApiURL}&vendor=slots`;
+		var src = new URL(UHT_CONFIG.GAME_URL).origin + `/gs2c/common/lobby/v1/apps/lobby/1.0.0/meta.html?mgckey=${mgckey}&symbol=${gameSymbol}&language=${gameConfig.lang}&currency=${gameConfig.currency}&region=${gameConfig.region}&ingameLobbyApiURL=${ingameLobbyApiURL}&vendor=slots`;
 
 		if(gameConfig["currencyOriginal"])
 			src += `&currencyOriginal=${gameConfig.currencyOriginal}`;

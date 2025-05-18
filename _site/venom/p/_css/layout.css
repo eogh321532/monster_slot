@@ -1,0 +1,2304 @@
+@charset "utf-8";
+
+#wrap {
+  float: left;
+  width: 100%;
+  overflow-x: hidden;
+  background: #000000 url(https://cdn.jsdelivr.net/gh/psjump/venom@main/pc/image/bg.jpg) center top repeat;
+  background-size: 100%;
+}
+
+/*-------------------------------------------------------------------------------------*
+ *  Header                                                                             *
+ *-------------------------------------------------------------------------------------*/
+.header_wrap {
+  float: left;
+  width: 100%;
+  background: url(https://cdn.jsdelivr.net/gh/psjump/venom@main/pc/image/bg_header.png) center top no-repeat;
+  position: relative;
+  z-index: 2;
+}
+.header_box {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 198px;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  float: left;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+.notice {
+  float: left;
+  margin: 57px 0 0 0;
+  max-width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+.my {
+  float: right;
+  margin: 50px 0 0 0;
+}
+.my li {
+  float: left;
+  margin: 0 0 0 10px;
+  line-height: 46px;
+  font-family: "EsaManru";
+  font-weight: 300;
+  font-size: 16px;
+  color: #ffffff;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+.my li a {
+  color: #ffffff;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+.my_font01 {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.util_btn2 {
+  display: inline-block;
+  min-width: 110px;
+  padding: 0 10px;
+  text-align: center;
+  height: 46px;
+  line-height: 46px;
+  border-radius: 10px;
+  background: linear-gradient(#aec90b 0%, #000000 100%);
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.title_box {
+  float: left;
+  width: 100%;
+  margin: 0px 0 0 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.title {
+  text-align: center;
+  line-height: 50px;
+  font-family: "EsaManru";
+  font-weight: 500;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+/* 신규추가 */
+.gnb_wrap {
+  float: left;
+  width: 100%;
+  margin: -14px 0 0 0;
+  border-top: 5px solid #393b41;
+  background: url(https://cdn.jsdelivr.net/gh/psjump/venom@main/pc/image/bg_gnb.jpg) center top no-repeat;
+  background-size: 100% 100%;
+}
+.gnb_box {
+  width: 100%;
+  max-width: 1920px;
+  height: 56px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+}
+
+.gnb1 {
+  float: left;
+  margin: 0 auto 0 0;
+}
+.gnb1 li {
+  float: left;
+  margin: 0 40px 0 0;
+}
+.gnb1 li a {
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+  transition: all 0.5s;
+}
+.gnb1 li:hover a {
+  color: #ff0000;
+}
+.gnb2 {
+  float: left;
+}
+.gnb2 li {
+  float: left;
+  margin: 0 0 0 30px;
+}
+.gnb2 li a {
+  font-weight: 300;
+  font-size: 16px;
+  color: #ffffff;
+  transition: all 0.5s;
+}
+.gnb2 li:hover a {
+  color: #ff0000;
+}
+
+/*-------------------------------------------------------------------------------------*
+ *  Contents                                                                           *
+ *-------------------------------------------------------------------------------------*/
+.contents_wrap {
+  float: left;
+  width: 100%;
+  min-height: 400px;
+  margin: 40px 0 0 0;
+}
+.contents_box {
+  width: 100%;
+  max-width: 1620px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contents_box_left {
+  float: left;
+  width: calc(100% - 300px);
+  padding-bottom: 40px;
+}
+.contents_box_center {
+  float: left;
+  width: 100%;
+  padding-bottom: 40px;
+}
+.contents_box_right {
+  float: left;
+  width: 290px;
+  padding-bottom: 40px;
+  padding-left: 10px;
+}
+
+.con_box00 {
+  float: left;
+  width: 100%;
+  margin: 0 0 0 0;
+}
+.con_box05 {
+  float: left;
+  width: 100%;
+  margin: 05px 0 0 0;
+}
+.con_box10 {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+.con_box20 {
+  float: left;
+  width: 100%;
+  margin: 20px 0 0 0;
+}
+.con_box30 {
+  float: left;
+  width: 100%;
+  margin: 30px 0 0 0;
+}
+.con_box40 {
+  float: left;
+  width: 100%;
+  margin: 40px 0 0 0;
+}
+.con_box50 {
+  float: left;
+  width: 100%;
+  margin: 50px 0 0 0;
+}
+.con_box60 {
+  float: left;
+  width: 100%;
+  margin: 60px 0 0 0;
+}
+
+/*-------------------------------------------------------------------------------------*
+ *  오른쪽고정영역                                                                       *
+ *-------------------------------------------------------------------------------------*/
+.cart_wrap {
+  float: left;
+  width: 100%;
+  margin: 0px 0 0 0;
+  min-height: 408px;
+  background: url(https://cdn.jsdelivr.net/gh/psjump/venom@main/pc/image/bg_left.jpg) center top no-repeat;
+  padding: 10px 20px 20px 24px;
+  position: relative;
+  border-radius: 10px 10px;
+}
+
+.cart_title {
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.cart_info_wrap {
+  float: left;
+  width: 100%;
+  margin: 2px 0 0 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+.cart_style1 {
+  line-height: 30px;
+  font-family: "EsaManru";
+  font-weight: 300;
+  font-size: 14px;
+  color: #ffffff;
+} /* 카트리스트 */
+.cart_style2 {
+  float: right;
+  font-weight: 500;
+  color: #ff0000;
+}
+.cart_style2 i {
+  width: 20px;
+}
+.cart_style3 {
+  line-height: 20px;
+  font-family: "EsaManru";
+  font-weight: 300;
+  font-size: 13px;
+  color: #ffffff;
+}
+.cart_style4 {
+  float: right;
+  font-weight: 500;
+  color: #7889af;
+}
+
+.cart_btn1 {
+  background: linear-gradient(#525763 0%, #252429 100%);
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "EsaManru";
+  font-weight: 500;
+  font-size: 14px;
+  color: #c2c8ca;
+  overflow: hidden;
+}
+.cart_btn1:hover {
+  background: linear-gradient(#8992a9 0%, #252429 100%);
+  color: #ffffff;
+}
+.cart_btn2 {
+  background: linear-gradient(#ba0000 0%, #730000 100%);
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 20px;
+  color: #ffffff;
+  overflow: hidden;
+}
+.cart_btn2:hover {
+  background: linear-gradient(#ff0000 0%, #730000 100%);
+}
+
+.cart_bet_wrap {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+  border-radius: 10px;
+  padding: 0px;
+  max-height: 200px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.cart_bet_wrap::-webkit-scrollbar {
+  width: 3px; /* 스크롤바의 너비 */
+}
+.cart_bet_wrap::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: rgba(255, 255, 255, 0.1); /* 스크롤바의 색상 */
+  border-radius: 5px;
+}
+.cart_bet_wrap::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /*스크롤바 뒷 배경 색상*/
+}
+.cart_bet {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  margin: 0 0 3px 0;
+  border-radius: 3px;
+  background: #262a2c;
+} /* 팀 선택시 */
+.cart_bet:last-child {
+  margin: 0 0 0 0;
+}
+.cart_bet_title {
+  float: left;
+  width: 100%;
+  padding: 0 20px 0 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-family: "EsaManru";
+  font-weight: 300;
+  font-size: 12px;
+  color: #c2c8ca;
+}
+.cart_bet_close {
+  position: absolute;
+  right: 0;
+  top: -2px;
+}
+.cart_bet_close i {
+  color: #ff0000;
+}
+.cart_bet_info {
+  float: left;
+  width: 100%;
+  margin: 5px 0 0 0;
+  border-radius: 3px;
+  padding: 10px 5px;
+  background: #32333a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart_bet_info1 {
+  font-family: "EsaManru";
+  font-weight: 300;
+  font-size: 13px;
+  color: #ffffff;
+  padding: 0 10px 0 0;
+}
+.cart_bet_info2 {
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 14px;
+  color: #7889af;
+  white-space: nowrap;
+}
+
+.customer_box {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+  padding: 0 0 20px 0;
+}
+.customer_text1 {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+  text-align: center;
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 30px;
+  color: #ffffff;
+}
+.customer_text1 a {
+  color: #ffffff;
+}
+
+.left_sports {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+
+/*-------------------------------------------------------------------------------------*
+ *  Footer                                                                             *
+ *-------------------------------------------------------------------------------------*/
+.footer_wrap {
+  float: left;
+  width: 100%;
+  margin: 40px 0 0 0;
+  padding: 50px 0 50px 0;
+  background: #26272c;
+}
+.f_partners {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.f_partners img {
+  width: 100%;
+  max-width: 1214px;
+}
+.f_copy {
+  float: left;
+  width: 100%;
+  margin: 20px 0 0 0;
+  text-align: center;
+}
+.f_copy span {
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 100px;
+  line-height: 1.7;
+  background: rgba(255, 255, 255, 0.05);
+  color: #5e5e5e;
+}
+
+/*-------------------------------------------------------------------------------------*
+ *  Main                                                                               *
+ *-------------------------------------------------------------------------------------*/
+.main_visual {
+  float: left;
+  width: 100%;
+  overflow: hidden;
+}
+.main_visual img {
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.main_game_list {
+  float: left;
+  width: 100%;
+}
+.main_game_list li {
+  float: left;
+  width: calc(100% / 6 - 20px);
+  margin: 0 24px 24px 0;
+  transition: all 0.5s;
+}
+.main_game_list li:nth-child(6n) {
+  margin: 0 0 24px 0;
+}
+.main_game_list li a {
+  display: block;
+}
+.main_game_list li a img {
+  width: 100%;
+}
+
+.main_board_box {
+  float: left;
+  width: 100%;
+  margin: 40px 0 0 0;
+  display: flex;
+}
+.board {
+  float: left;
+  width: calc(100% / 3 - 20px);
+  margin: 0 30px 0 0;
+  background: linear-gradient(#383c43 0%, #1d1c20 100%);
+  border-radius: 10px;
+  padding: 15px 20px;
+  overflow: hidden;
+}
+.board:last-child {
+  margin: 0 0 0 0;
+}
+.board_title {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 18px;
+  color: #ff0000;
+}
+.board_box {
+  float: left;
+  width: 100%;
+  padding: 15px 0 0 0;
+}
+.myTable {
+  table-layout: fixed;
+}
+.board_box td {
+  font-family: "EsaManru";
+  color: #bababa;
+  font-size: 14px;
+  line-height: 30px;
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.main_quick_menu {
+  background: none;
+  border: 2px solid #373a41;
+}
+.main_quick_menu ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main_quick_menu li {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+}
+.main_quick_menu li:nth-child(1) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.main_quick_menu li:nth-child(2) {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.main_quick_menu li:nth-child(2) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.main_quick_menu li:nth-child(4) {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.main_quick_menu li a {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.main_quick_menu li a img {
+}
+/*-------------------------------------------------------------------------------------*
+ *  popup                                                                              *
+ *-------------------------------------------------------------------------------------*/
+.main_pop_wrap {
+  float: left;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.main_pop_box {
+  float: left;
+  width: 400px;
+  margin: 5px;
+}
+.main_pop_title {
+  float: left;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(#515159 0%, #0f0f10 100%);
+  border-radius: 5px 5px 0 0;
+  position: relative;
+}
+.main_pop_title img {
+  display: inline-block;
+  width: 200px;
+}
+.close_btn_cu {
+  color: #d4d4d4;
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  transition: all 0.3s;
+}
+
+.main_pop_con {
+  float: left;
+  width: 100%;
+}
+.main_pop_con img {
+  width: 100%;
+}
+.main_popup_close {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.main_popup_close a {
+  background: linear-gradient(#515159 0%, #0f0f10 100%);
+  min-width: 200px;
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 0px;
+  font-family: "EsaManru";
+  font-weight: 300;
+  font-size: 14px;
+  color: #ffffff;
+  transition: all 0.3s;
+}
+.main_popup_close a:hover {
+  color: #ff0000;
+}
+
+/*-------------------------------------------------------------------------------------*
+ *  login                                                                              *
+ *-------------------------------------------------------------------------------------*/
+#login {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  background: rgba(80, 83, 97, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  backdrop-filter: blur(10px);
+}
+.login_wrap {
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  transition: all 0.5s;
+}
+
+#join {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  background: rgba(80, 83, 97, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  backdrop-filter: blur(10px);
+}
+.join_wrap {
+  width: 95%;
+  max-width: 800px;
+  margin: 0 auto;
+  transition: all 0.5s;
+}
+.join_box {
+  width: 100%;
+  padding: 20px 20px 40px;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s;
+}
+.join_box::-webkit-scrollbar {
+  width: 3px; /* 스크롤바의 너비 */
+}
+.join_box::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: rgba(255, 255, 255, 0.1); /* 스크롤바의 색상 */
+  border-radius: 0px;
+}
+.join_box::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /*스크롤바 뒷 배경 색상*/
+}
+
+.loginbox {
+  width: 100%;
+  margin: 30px 0 0 0;
+  float: left;
+  background: url(https://cdn.jsdelivr.net/gh/psjump/venom@main/pc/image/bg_left.jpg) center center no-repeat;
+  background-size: cover;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+}
+
+.close_btn_cu {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 0;
+  color: #ff0000;
+  font-weight: 700;
+  position: absolute;
+  right: 0px;
+  top: -40px;
+  z-index: 11;
+  transition: all 0.3s;
+}
+.close_btn_cu img {
+  transition: all 0.3s;
+}
+.close_btn_cu i {
+  transition: all 0.3s;
+}
+.close_btn_cu:hover i {
+  transform: scale(1.1);
+  color: #7889af;
+}
+
+.loginbox_r {
+  width: 100%;
+  padding: 40px 20px;
+  max-height: 700px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s;
+}
+.loginbox_r::-webkit-scrollbar {
+  width: 3px; /* 스크롤바의 너비 */
+}
+.loginbox_r::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: rgba(255, 255, 255, 0.1); /* 스크롤바의 색상 */
+  border-radius: 5px;
+}
+.loginbox_r::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /*스크롤바 뒷 배경 색상*/
+}
+
+.login_logo {
+  float: left;
+  width: 100%;
+  text-align: center;
+  padding: 0 20px;
+}
+.login_logo img {
+  width: 100%;
+  max-width: 240px;
+}
+.login_title {
+  float: left;
+  width: 100%;
+  margin: 30px 0 0 0;
+  text-align: center;
+  padding: 0 0 0 10px;
+  font-weight: 300;
+  font-size: 16px;
+  color: #ffffff;
+}
+.login {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+.login li {
+  float: left;
+  width: 100%;
+  padding: 1%;
+  transition: all 0.2s;
+} /* ysk 가로 100%로 변경시 세로형 */
+
+.login1 {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+.login1 ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.login1 li {
+  float: left;
+  width: 50%;
+  padding: 1% 1%;
+  transition: all 0.2s;
+} /* ysk 가로 100%로 변경시 세로형 */
+.join_title {
+  float: left;
+  width: 100%;
+  padding: 0 0 5px;
+  font-family: "Esamanru";
+  font-weight: 300;
+  font-size: 14px;
+  color: #ffffff;
+}
+.join_text {
+  float: left;
+  width: 100%;
+  padding: 5px 0 0;
+  font-family: "Esamanru";
+  font-weight: 300;
+  font-size: 12px;
+  color: #dddddd;
+}
+.join_phone {
+  float: left;
+  width: 100%;
+  display: flex;
+}
+.join_phone .login_btn1 {
+  width: 45%;
+}
+
+.login_input {
+  background-color: #252429;
+  border: 1px solid #111111;
+  color: #ffffff;
+  width: 100%;
+  height: 46px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 0 0 0 15px;
+  font-family: "EsaManru";
+}
+.login_input::placeholder {
+  color: #7889af;
+  font-size: 14px;
+  letter-spacing: 0pt;
+}
+.login_input:focus {
+  border: 1px solid #252429;
+}
+
+.login_font01 {
+  font-family: "Esamanru";
+  font-weight: 300;
+  font-size: 12px;
+  color: #bababa;
+}
+.login_font02 {
+  color: #ffffff;
+}
+
+.login_btn_box2 {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+.login_btn_box2 li {
+  float: left;
+  width: 100%;
+  padding: 0%;
+  transition: all 0.2s;
+  font-weight: 500;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+.login_btn_box2.w50 li {
+  width: 50%;
+  padding: 1%;
+}
+.login_btn_box2 li button {
+  width: 100%;
+}
+.login_btn1 {
+  background: linear-gradient(#b00000 0%, #000000 100%);
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "Esamanru";
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+}
+.login_btn2 {
+  background: linear-gradient(#515159 0%, #0f0f10 100%);
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "Esamanru";
+  font-weight: 300;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.login_btn1:hover {
+  opacity: 0.8;
+}
+.login_btn2:hover {
+  opacity: 0.8;
+}
+.login_btn1.h36 {
+  height: 46px;
+  line-height: 46px;
+  border-radius: 5px;
+}
+
+.login_btn_box3 {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+  text-align: center;
+  border: 1px solid #525763;
+  padding: 30px 10px;
+  border-radius: 10px;
+}
+.lbb_text1 {
+  float: left;
+  width: 100%;
+  margin: 0 0 0 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff;
+  transition: all 0.2s;
+}
+.lbb_text2 {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #dddddd;
+  transition: all 0.2s;
+}
+.lbb_text2 button {
+  width: 100%;
+  margin: 10px 0 0 0;
+  max-width: 180px;
+}
+
+@media screen and (max-width: 1060px) {
+  .loginbox_r {
+    height: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .loginbox_l {
+    display: none;
+  }
+  .loginbox_r {
+    width: 100%;
+  }
+  .login_logo {
+    padding: 0 30px;
+  }
+  .login1 li {
+    width: 100%;
+  }
+}
+
+/*-------------------------------------------------------------------------------------*
+ *  특별한                                                                             *
+ *-------------------------------------------------------------------------------------*/
+/* 라디오버튼 */
+.radio_wrap {
+  float: left;
+  width: 100%;
+  height: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+}
+.radio_wrap label {
+  display: flex;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  margin: 0 5px 0 0;
+}
+.radio_wrap label input {
+  position: absolute;
+  left: -9999px;
+}
+.radio_wrap label input:checked + span {
+  background-color: #ba0000;
+  color: #ffffff;
+}
+.radio_wrap label input:checked + span:before {
+  box-shadow: inset 0 0 0 0.4375em #ffffff;
+}
+.radio_wrap label > span {
+  display: flex;
+  align-items: center;
+  padding: 0.375em 0.75em 0.375em 0.375em;
+  border-radius: 5px;
+  transition: 0.25s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: #eeeeee;
+}
+.radio_wrap label > span:hover {
+  background-color: #ba0000;
+  color: #ffffff;
+}
+.radio_wrap label > span:before {
+  display: flex;
+  flex-shrink: 0;
+  content: "";
+  background-color: #1c2338;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 5%;
+  margin-right: 0.375em;
+  transition: 0.25s ease;
+  box-shadow: inset 0 0 0 0.125em #eaeaea;
+}
+.radio_wrap label > span > span {
+  padding: 0 10px;
+  border-radius: 5px;
+  transition: 0.25s ease;
+  background: #32333a;
+  color: #ffffff;
+}
+
+.serch_wrap {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+}
+.serch_select {
+  background-color: #252429;
+  border: 1px solid #111111;
+  padding: 4px 0 4px 5px;
+  color: #ffffff;
+  border-radius: 5px;
+  height: 34px;
+  margin: 0 5px 0 0;
+  width: 20%;
+}
+.serch_input {
+  background-color: #252429;
+  border: 1px solid #111111;
+  padding: 4px 0 4px 5px;
+  color: #ffffff;
+  border-radius: 5px;
+  height: 34px;
+  margin: 0 5px 0 0;
+  width: 60%;
+}
+
+.team_l {
+  width: 50%;
+  line-height: 16px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* white-space: normal; 팀명 짤리지않게할때 */
+}
+.team_r {
+  width: 50%;
+  line-height: 16px;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* white-space: normal; 팀명 짤리지않게할때 */
+}
+
+/* 베팅내역 */
+.sports_bet_history_list {
+  float: left;
+  width: 100%;
+  padding: 5px 10px;
+  background: #1e1e24;
+}
+.sports_bet_history_list ul {
+  display: flex;
+  align-items: center;
+}
+.sports_bet_history_list li {
+  float: left;
+  padding: 5px 5px;
+  margin: 0 5px;
+  font-family: "EsaManru";
+  font-weight: 300;
+  font-size: 13px;
+  color: #ffffff;
+}
+.history_time span {
+  font-weight: 500;
+  color: #c8e5d7;
+}
+.history_won1 span {
+  font-weight: 500;
+  color: #ccff00;
+}
+.history_odd span {
+  font-weight: 500;
+  color: #00ffb8;
+}
+.history_won2 span {
+  font-weight: 500;
+  color: #f4c8ff;
+}
+.history_won3 span {
+  font-weight: 500;
+  color: #00ccff;
+}
+
+.history_title_wrap {
+  float: left;
+  width: 100%;
+  margin: 0px 0 0 0;
+  padding: 0 0 0px 0;
+  transition: all 0.5s;
+  background: rgba(0, 0, 0, 0.5);
+}
+.history_s_title {
+  float: left;
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(#b00000 0%, #000000 100%);
+}
+.history_s_title ul {
+  display: inline-flex;
+  width: 100%;
+  margin: 0 0 3px 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+.history_s_title ul li {
+  text-align: center;
+  line-height: 48px;
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+}
+.history_s_title01 {
+  float: left;
+  width: 10%;
+}
+.history_s_title02 {
+  float: left;
+  width: 13%;
+}
+.history_s_title03 {
+  float: left;
+  width: 63%;
+}
+.history_s_title04 {
+  float: left;
+  width: 7%;
+}
+.history_s_title05 {
+  float: left;
+  width: 7%;
+}
+
+.history_title_list {
+  float: left;
+  width: 100%;
+  margin: 5px 0px 0 0;
+}
+.history_title_list_title {
+  float: left;
+  width: 100%;
+  background: #36363a;
+  height: 35px;
+  display: flex;
+  padding: 0px 10px;
+  align-items: center;
+  font-family: "EsaManru";
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+}
+.history_title_list > ul {
+  display: inline-flex;
+  width: 100%;
+  margin: 5px 0 3px 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+.history_title_list > ul > li {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  text-align: center;
+  margin: 0 1px 0 0;
+  font-weight: 500;
+  padding: 5px 5px;
+  min-height: 40px;
+  line-height: 14px;
+  vertical-align: middle;
+  border-radius: 3px;
+  cursor: pointer;
+  clear: both;
+  font-family: "EsaManru";
+  font-weight: 300;
+  font-size: 13px;
+  color: #ffffff;
+}
+.history_title_list > ul > li:last-child {
+  margin: 0;
+}
+.history_title_list > ul > li.result_more {
+  margin: 0;
+}
+.history_title_list > ul > li.result_ing {
+  margin: 0;
+}
+.history_title_list > ul > li.result_team1 {
+  background: #32333a;
+  border: 1px solid #32333a;
+}
+.history_title_list > ul > li.result_tie {
+  background: #32333a;
+  border: 1px solid #32333a;
+}
+.history_title_list > ul > li.result_team2 {
+  background: #32333a;
+  border: 1px solid #32333a;
+}
+.history_title_list > ul > li.result_tie.active {
+  background: #1a1a1a;
+  border: 1px solid #b00000;
+  color: #ffffff;
+  font-weight: 500;
+}
+.history_title_list > ul > li.result_team1.active {
+  background: #1a1a1a;
+  border: 1px solid #b00000;
+  color: #ffffff;
+  font-weight: 500;
+}
+.history_title_list > ul > li.result_team2.active {
+  background: #1a1a1a;
+  border: 1px solid #b00000;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* 경기결과 */
+.result_title_wrap {
+  float: left;
+  width: 100%;
+  margin: 0px 0 0 0;
+  padding: 0 0 0px 0;
+  transition: all 0.5s;
+  background: rgba(0, 0, 0, 0.5);
+}
+.result_s_title {
+  float: left;
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(#b00000 0%, #000000 100%);
+}
+.result_s_title ul {
+  display: inline-flex;
+  width: 100%;
+  margin: 0 0 3px 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+.result_s_title ul li {
+  text-align: center;
+  line-height: 48px;
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+}
+.result_s_title01 {
+  float: left;
+  width: 10%;
+}
+.result_s_title02 {
+  float: left;
+  width: 13%;
+}
+.result_s_title03 {
+  float: left;
+  width: 68%;
+}
+.result_s_title04 {
+  float: left;
+  width: 9%;
+}
+
+.result_title_list {
+  float: left;
+  width: 100%;
+  margin: 5px 0px 0 0;
+}
+.result_title_list_title {
+  float: left;
+  width: 100%;
+  background: #1e1e24;
+  height: 26px;
+  display: flex;
+  padding: 0px 10px;
+  align-items: center;
+  font-family: "EsaManru";
+  font-weight: 300;
+  font-size: 12px;
+  color: #dfe3ff;
+}
+.result_title_list > ul {
+  display: inline-flex;
+  width: 100%;
+  margin: 5px 0 3px 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+.result_title_list > ul > li {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  text-align: center;
+  margin: 0 1px 0 0;
+  font-weight: 500;
+  padding: 5px 5px;
+  min-height: 40px;
+  line-height: 14px;
+  vertical-align: middle;
+  border-radius: 3px;
+  cursor: pointer;
+  clear: both;
+  font-family: "EsaManru";
+  font-weight: 300;
+  font-size: 13px;
+  color: #ffffff;
+}
+.result_title_list > ul > li:last-child {
+  margin: 0;
+}
+.result_title_list > ul > li.result_more {
+  margin: 0;
+}
+.result_title_list > ul > li.result_ing {
+  margin: 0;
+}
+.result_title_list > ul > li.result_state {
+  font-weight: 500;
+  color: #b00000;
+}
+.result_title_list > ul > li.result_team1 {
+  background: #32333a;
+  border: 1px solid #32333a;
+}
+.result_title_list > ul > li.result_tie {
+  background: #32333a;
+  border: 1px solid #32333a;
+}
+.result_title_list > ul > li.result_team2 {
+  background: #32333a;
+  border: 1px solid #32333a;
+}
+.result_title_list > ul > li.result_tie.active {
+  background: #1a1a1a;
+  border: 1px solid #b00000;
+  color: #ffffff;
+  font-weight: 500;
+}
+.result_title_list > ul > li.result_team1.active {
+  background: #1a1a1a;
+  border: 1px solid #b00000;
+  color: #ffffff;
+  font-weight: 500;
+}
+.result_title_list > ul > li.result_team2.active {
+  background: #1a1a1a;
+  border: 1px solid #b00000;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* 배당색상 */
+.result_team1 .team_r {
+  color: #ffffff;
+  font-weight: 500;
+}
+.result_team2 .team_l {
+  color: #ffffff;
+  font-weight: 500;
+}
+.result_team1.active .team_r {
+  color: #fff600;
+}
+.result_team2.active .team_l {
+  color: #fff600;
+}
+
+.result_title_list .result_time {
+  width: calc(10% - 1px);
+  transition: all 0.3s;
+}
+.result_title_list .result_league {
+  width: calc(13% - 1px);
+  transition: all 0.3s;
+}
+.result_title_list .result_team1 {
+  width: calc(30% - 1px);
+  transition: all 0.3s;
+}
+.result_title_list .result_tie {
+  width: calc(8% - 1px);
+  transition: all 0.3s;
+}
+.result_title_list .result_team2 {
+  width: calc(30% - 1px);
+  transition: all 0.3s;
+}
+.result_title_list .result_state {
+  width: 9%;
+  transition: all 0.3s;
+}
+
+.history_title_list .result_time {
+  width: calc(10% - 1px);
+  transition: all 0.3s;
+}
+.history_title_list .result_league {
+  width: calc(13% - 1px);
+  transition: all 0.3s;
+}
+.history_title_list .result_team1 {
+  width: calc(28% - 1px);
+  transition: all 0.3s;
+}
+.history_title_list .result_tie {
+  width: calc(7% - 1px);
+  transition: all 0.3s;
+}
+.history_title_list .result_team2 {
+  width: calc(28% - 1px);
+  transition: all 0.3s;
+}
+.history_title_list .result_state {
+  width: calc(7% - 1px);
+  transition: all 0.3s;
+}
+.history_title_list .result_more {
+  width: 7%;
+  transition: all 0.3s;
+}
+.history_title_list .result_ing {
+  width: 7%;
+  transition: all 0.3s;
+}
+
+/* 승무패색상 */
+.state1 {
+  color: #ffdf1b !important;
+}
+.state2 {
+  color: #b1b1b1 !important;
+}
+.state3 {
+  color: #4bff00 !important;
+}
+
+/* 베팅한도색상 */
+.bet_max {
+  color: #fff600;
+}
+
+/* 게임벳팅목록 */
+.game_bet_list > ul > li.result_tie:hover {
+  background: #1a1a1a;
+  border: 1px solid #b00000;
+  color: #ffffff;
+}
+.game_bet_list > ul > li.result_team1:hover {
+  background: #1a1a1a;
+  border: 1px solid #b00000;
+  color: #ffffff;
+}
+.game_bet_list > ul > li.result_team2:hover {
+  background: #1a1a1a;
+  border: 1px solid #b00000;
+  color: #ffffff;
+}
+
+/* 미니게임버튼 */
+.mini_title_wrap {
+  float: left;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px 0 20px;
+  background: url(https://cdn.jsdelivr.net/gh/psjump/venom@main/pc/image/bg_left.jpg) center center no-repeat;
+  background-size: cover;
+}
+.mini_in_title {
+  float: left;
+  font-size: 16px;
+  font-family: "EsaManru";
+  font-weight: 500;
+  color: #ffffff;
+}
+.mini_round {
+  font-weight: 300;
+}
+.mini_round span {
+  color: #9d96ff;
+  letter-spacing: -1pt;
+}
+.mini_time {
+  font-weight: 300;
+}
+.mini_time span {
+  color: #9d96ff;
+  letter-spacing: -1pt;
+}
+
+.mini_movie_wrap {
+  float: left;
+  width: 100%;
+  min-height: 300px;
+  background: #555555;
+  text-align: center;
+  padding: 20px 0 20px;
+}
+
+.mini_game_wrap {
+  float: left;
+  width: 100%;
+  margin: 20px 0 0 0;
+}
+.mini_game_box {
+  float: left;
+  width: 33%;
+  margin: 0 0.5% 0.5% 0;
+}
+.mini_game_box:nth-child(3n) {
+  margin: 0 0 0.5% 0;
+}
+.mini_game_title {
+  float: left;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  background: linear-gradient(#b00000 0%, #000000 100%);
+  text-align: center;
+  font-family: "EsaManru";
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.mini_btn_box {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.row_btn {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(80, 83, 97, 0.7);
+}
+.cul_btn {
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 65px;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(80, 83, 97, 0.7);
+}
+
+.mini_btn_type {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-family: "EsaManru";
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffffff;
+}
+.mini_btn_odd {
+  margin: 10px 0 0 0;
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+  transition: all 0.5s;
+}
+
+.row_btn .mini_btn_type {
+  width: 70px;
+  height: 70px;
+}
+.cul_btn .mini_btn_type {
+  width: 55px;
+  height: 55px;
+}
+.cul_btn .mini_btn_odd {
+  margin: 0px 0 0 0;
+}
+
+.mini_btn_type_att {
+  position: absolute;
+  top: -5px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background: #32333a;
+  border: 1px solid #bdc2e1;
+  border-radius: 20px;
+  font-family: "EsaManru";
+  font-weight: 500;
+  font-size: 13px;
+  color: #ffffff;
+}
+.mini_btn_type_att.ab_l {
+  left: -5px;
+}
+.mini_btn_type_att.ab_r {
+  right: -5px;
+}
+
+.width50 {
+  width: calc(50% - 10px);
+  margin: 5px 5px;
+}
+.width30 {
+  width: calc(33.3333% - 10px);
+  margin: 5px 5px;
+}
+
+.mini_btn_type1 {
+  background: linear-gradient(#ff6000 0%, #9e0000 100%);
+}
+.mini_btn_type2 {
+  background: linear-gradient(#00c9ec 0%, #0050c7 100%);
+}
+.mini_btn_type3 {
+  background: linear-gradient(#3dff00 0%, #00b333 100%);
+}
+
+.row_btn:hover {
+  background: #1a1a1a;
+  border: 1px solid #b00000;
+}
+.cul_btn:hover {
+  background: #1a1a1a;
+  border: 1px solid #b00000;
+}
+.row_btn.on {
+  background: #1a1a1a;
+  box-shadow: 0px 0px 10px 0px #b00000 inset;
+  border: 1px solid #b00000;
+}
+.cul_btn.on {
+  background: #1a1a1a;
+  box-shadow: 0px 0px 10px 0px #b00000 inset;
+  border: 1px solid #b00000;
+}
+.row_btn:hover .mini_btn_odd {
+  color: #ffffff;
+}
+.cul_btn:hover .mini_btn_odd {
+  color: #ffffff;
+}
+
+/* 이용안내 */
+.rule_wrap {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+  background: rgba(0, 0, 0, 0.5);
+}
+.rule_box1 {
+  float: left;
+  width: 100%;
+}
+.rule_box1 td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  line-height: 16px;
+  height: 44px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #f5f5f5;
+  letter-spacing: 0px;
+  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.4);
+  padding: 5px 15px 5px 15px;
+}
+.rule_box1 tr:first-child td {
+  background: #1e1e24;
+}
+.rule_box1 tr:nth-child(n + 2) td:first-child {
+  background: ;
+}
+.rule_box1 tr:nth-child(n + 2) td:last-child {
+  background: rgba(255, 255, 255, 0.01);
+}
+.rule_box_title {
+  float: left;
+  width: 100%;
+  background: linear-gradient(#b00000 0%, #000000 100%);
+  line-height: 48px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff;
+  letter-spacing: -1px;
+  padding: 0 0 0 20px;
+}
+
+.rule_box1::-webkit-scrollbar {
+  height: 5px;
+}
+.rule_box1::-webkit-scrollbar-thumb {
+  width: 30%;
+  background: #b00000;
+  border-radius: 10px;
+}
+.rule_box1::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.rule_font1 {
+  color: #fff600;
+}
+.rule_font2 {
+  color: #9d96ff;
+}
+.rule_font3 {
+  color: #00fcff;
+}
+.rule_font4 {
+  color: #06ff00;
+}
+.rule_font5 {
+  color: #ff001e;
+}
+
+.rule_info_wrap {
+  background: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  float: left;
+  width: 100%;
+  padding: 15px 0 20px 0;
+  border-radius: 0px;
+}
+.rule_info1 {
+  float: left;
+  width: 100%;
+  line-height: 26px;
+  color: #ffd800;
+  padding: 0 20px 0 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.rule_info2 {
+  float: left;
+  width: 100%;
+  line-height: 26px;
+  color: #fbd8b8;
+  padding: 5px 20px 0 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.rule_info3 {
+  float: left;
+  width: 100%;
+  line-height: 30px;
+  color: #f2f2f2;
+  padding: 5px 20px 0 23px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+
+.game_list {
+  float: left;
+  width: 100%;
+}
+.game_list li {
+  float: left;
+  width: calc(100% / 4 - 12px);
+  margin: 0 16px 16px 0;
+  transition: all 0.5s;
+}
+.game_list li:nth-child(4n) {
+  margin: 0 0 16px 0;
+}
+.game_list li a {
+  display: block;
+}
+.game_list li a img {
+  width: 100%;
+}
+
+/* 머니이동 */
+.money_move {
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.money_move_box {
+  float: left;
+  width: 37%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px 30px;
+}
+.money_move_arrow {
+  float: left;
+  width: 14%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px 30px;
+}
+.money_action_box {
+  float: left;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+.money_action_box a {
+  background: linear-gradient(#b00000 0%, #000000 100%);
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "EsaManru";
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff;
+  overflow: hidden;
+}
+.money_action_box a:hover {
+  background: linear-gradient(#ff0000 0%, #000000 100%);
+}
+.how_money {
+  font-weight: 300;
+  font-size: 16px;
+  color: #ffffff;
+}
+.how_md {
+  display: block;
+  margin: 5px 0 0 0;
+}
+.money_font {
+  font-weight: 500;
+  font-size: 20px;
+  color: #7889af;
+}
+.icon_money i {
+  font-size: 30px;
+}
+
+.menu {
+  display: block;
+  width: 40px;
+  height: 36px;
+  transform: rotate(-90deg);
+  position: relative;
+  cursor: pointer;
+}
+.menu div {
+  background-color: #b00000;
+  position: absolute;
+  border-radius: 2px;
+  height: 4px;
+  transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+}
+.menu input {
+  display: none;
+}
+.menu input + div {
+  left: 3px;
+  top: 12px;
+  width: 30px;
+  transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transform: rotate(90deg);
+  transition-delay: 150ms;
+}
+.menu input + div + div {
+  left: 2px;
+  top: 20px;
+  width: 20px;
+  transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transform: rotate(45deg);
+  transition-delay: 50ms;
+}
+.menu input + div + div + div {
+  left: 14px;
+  top: 20px;
+  width: 20px;
+  transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transform: rotate(-45deg);
+  transition-delay: 100ms;
+}
+.menu input:checked + div {
+}
+.menu input:checked + div + div {
+  top: 0px;
+  transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transform: rotate(-45deg);
+  transition-delay: 50ms;
+}
+.menu input:checked + div + div + div {
+  top: 0px;
+  transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transform: rotate(45deg);
+  transition-delay: 100ms;
+}
+
+@media screen and (max-width: 768px) {
+  .money_move {
+    flex-wrap: wrap;
+  }
+  .money_move_box {
+    width: 100%;
+  }
+  .money_move_arrow {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .menu {
+    transform: rotate(0deg);
+  }
+}
+
+/* out_login */
+.out_login_wrap {
+  float: left;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(https://cdn.jsdelivr.net/gh/psjump/venom@main/pc/image/bg_out_login.jpg) center top no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+.out_login_box {
+  float: left;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  z-index: 1;
+}
+.out_login_box_in {
+  float: left;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 50px 70px 70px;
+  background: url(https://cdn.jsdelivr.net/gh/psjump/venom@main/pc/image/bg_out_login_box.jpg) center top no-repeat;
+  background-size: cover;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.6);
+}
+.out_login_item {
+  position: absolute;
+  right: -520px;
+  z-index: -1;
+}
+.out_login_list {
+  float: left;
+  width: 100%;
+  margin: 20px 0 0 0;
+}
+.out_login_list li {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+.out_login_list li a {
+  width: 100%;
+  display: block;
+}
+
+.out_login_input {
+  background-color: #262626;
+  border: 1px solid #000000;
+  color: #ffffff;
+  width: 100%;
+  height: 46px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 0 0 0 15px;
+  font-family: "EsaManru";
+}
+.out_login_input::placeholder {
+  color: #828282;
+  font-size: 14px;
+  letter-spacing: 0pt;
+}
+.out_login_input:focus {
+  border: 1px solid #b00000;
+}
+
+.out_login_btn1 {
+  background: linear-gradient(#b00000 0%, #000000 100%);
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "Esamanru";
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff;
+  box-shadow: 0 1px 1px 1px rgba(255, 0, 0, 0.5);
+}
+.out_login_btn1:hover {
+  opacity: 0.8;
+}
+
+.out_login_sns {
+  float: left;
+  width: 100%;
+  margin: 40px 0 0 0;
+  text-align: center;
+}
+.out_login_sns a {
+  font-weight: 500px;
+  font-size: 20px;
+  color: #ffffff;
+}
+.out_login_sns a span {
+  font-weight: 700;
+  color: #ff0000;
+}
+.out_login_sns a img {
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+
+/* 쿠폰 */
+.coupon_wrap {
+  float: left;
+  width: 100%;
+}
+.coupon {
+  float: left;
+  width: 100%;
+}
+.coupon ul {
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.coupon li {
+  float: left;
+  margin: 0 0 10px 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.coupon li a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.coupon li a img {
+  width: 100%;
+  max-width: 750px;
+  filter: grayscale(1) brightness(80%);
+  transition: all 0.5s;
+}
+.coupon li.active a img {
+  filter: grayscale(0);
+}
+.coupon_font01 {
+  display: inline-block;
+  position: absolute;
+  top: 65px;
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 40px;
+  background: linear-gradient(
+    to right,
+    #bb773b 0%,
+    #f1cd6e 25%,
+    #ffffb0 50%,
+    #f1cd6e 75%,
+    #bb773b 100%
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  filter: grayscale(1) brightness(80%);
+}
+.coupon_font01 {
+  color: rgb(255, 242, 181);
+  background-image: linear-gradient(
+    rgb(255, 255, 255) 45%,
+    rgb(170, 170, 170) 60%,
+    rgb(192, 192, 192) 74%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.coupon_font02 {
+  display: inline-block;
+  position: absolute;
+  bottom: 55px;
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 70px;
+  background: linear-gradient(#ff0000 0%, #b00000 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  filter: grayscale(0.7);
+}
+.coupon_font03 {
+  display: inline-block;
+  position: absolute;
+  bottom: 35px;
+  font-family: "EsaManru";
+  font-weight: 300;
+  font-size: 16px;
+  color: #666666;
+  filter: grayscale(1);
+}
+.active .coupon_font01 {
+  filter: grayscale(0) brightness(100%);
+}
+.active .coupon_font02 {
+  filter: grayscale(0);
+}
+.active .coupon_font03 {
+  color: #ffffff;
+}
+
+/* 출석부 */
+.att_box table {
+  table-layout: fixed;
+}
+.att_title1 {
+  background: linear-gradient(#b00000 0%, #000000 100%);
+  padding: 10px 4px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 12px;
+  color: #ffffff;
+}
+.att1 {
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  width: calc(100% / 7);
+  height: 130px;
+  padding: 3px 8px 3px 8px;
+  text-align: center;
+  position: relative;
+}
+.att1 img {
+  width: 90%;
+  max-width: 100px;
+}
+.att2 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  color: #a8a7ad;
+}
+.att_month_title {
+  float: left;
+  width: 100%;
+  border-top: 2px solid #393b41;
+  background: url(../images/bg_gnb.jpg) center top no-repeat;
+  font-family: "EsaManru";
+  font-weight: 700;
+  font-size: 20px;
+  color: #ff0000;
+  padding: 18px;
+  border-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.att_month_title a {
+  display: inline-block;
+  padding: 0px 20px;
+  font-weight: 300;
+  font-size: 18px;
+  color: #ffffff;
+  opacity: 0.8;
+}
+.att_month_title a:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .att_month_title {
+    text-align: center;
+    font-size: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .att_month_title span {
+    display: block;
+    width: 100%;
+    margin: 5px 0 0 0;
+    text-align: center;
+  }
+  .att1 {
+    height: 70px;
+  }
+  .att_month_title a {
+    padding: 0 10px;
+  }
+}

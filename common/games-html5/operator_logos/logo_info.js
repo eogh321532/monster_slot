@@ -3689,7 +3689,7 @@ UHTPatch({
 				enablePerformanceInstrumentation: false,
 				transports: [
 					new window.GrafanaFaroWebSdk.FetchTransport({
-						url: 'https://clctr.ltguevmavv.com/collect',
+						url: '/collect',
 						// /{app-key},
 
 						// Optional, if your receiver requires an API key
